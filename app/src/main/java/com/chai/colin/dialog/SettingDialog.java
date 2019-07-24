@@ -1,14 +1,10 @@
 package com.chai.colin.dialog;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,15 +12,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
-import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
-import com.chai.colin.util.SPUtils;
-import com.chai.colin.util.Utils;
 
-public class SettingDialog extends DialogFragment {
+public class SettingDialog extends BaseDialogFragment {
     private boolean accountBalance;
 //    public static SettingDialog newInstance(String account, String password) {
 //        SettingDialog frag = new SettingDialog();
@@ -39,6 +29,7 @@ public class SettingDialog extends DialogFragment {
     private RadioButton changePwd;
     private FrameLayout content;
     private String version;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,6 +63,7 @@ public class SettingDialog extends DialogFragment {
                 msg = "换密码";
             } else if (R.id.rBtn_setting_app_replace == checkedId) {
                 msg = "ddd";
+//                mContext.showLoading();
             }
             Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
         });
@@ -86,8 +78,8 @@ public class SettingDialog extends DialogFragment {
             rightContent = inflater.inflate(R.layout.fragment_setting_sound_nologin, content, false);
         }
 
-        SeekBar sb_music =  rightContent.findViewById(R.id.sb_music);
-        SeekBar sb_vol =  rightContent.findViewById(R.id.sb_vol);
+        SeekBar sb_music = rightContent.findViewById(R.id.sb_music);
+        SeekBar sb_vol = rightContent.findViewById(R.id.sb_vol);
         TextView tv_setting_name = rightContent.findViewById(R.id.tv_setting_name);
 //        tv_setting_name.setText(userAccount);
         TextView tv_setting_id = rightContent.findViewById(R.id.tv_setting_id);
@@ -95,11 +87,11 @@ public class SettingDialog extends DialogFragment {
         TextView tv_app_version = rightContent.findViewById(R.id.tv_app_version);
         tv_app_version.setText(version);
 
-        ImageView btn_logout =rightContent.findViewById(R.id.btn_logout);
-        if(accountBalance){
+        ImageView btn_logout = rightContent.findViewById(R.id.btn_logout);
+        if (accountBalance) {
             //todo退出登录
 //            btn_logout.setOnClickListener();
-        }else{
+        } else {
             btn_logout.setVisibility(View.INVISIBLE);
         }
         //音量设置
@@ -154,23 +146,6 @@ public class SettingDialog extends DialogFragment {
         content.removeAllViews();
         content.addView(rightContent);
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.MobileDialog);
-    }
-
-//    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//
-//        WindowManager.LayoutParams attributes = getDialog().getWindow().getAttributes();
-//        attributes.gravity = 17;
-//        attributes.height = -2;
-//        attributes.width = -2;
-//        getDialog().getWindow().setAttributes(attributes);
-//    }
 
 
 }

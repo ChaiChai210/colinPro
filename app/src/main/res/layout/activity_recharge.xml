@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/ic_recharge_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dp_45">
+
+        <include layout="@layout/activity_topbar" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toStartOf="@+id/btn_recharge_jilu"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_134"
+                android:layout_height="@dimen/dp_27"
+                android:background="@drawable/ic_recharge_account">
+
+                <View
+                    android:id="@+id/v_none"
+                    android:layout_width="@dimen/dp_33"
+                    android:layout_height="fill_parent" />
+
+                <TextView
+                    android:id="@+id/tv_golden_account"
+                    android:layout_width="@dimen/dp_130"
+                    android:layout_height="@dimen/dp_26"
+                    android:layout_toEndOf="@+id/v_none"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/home_yellow"
+                    android:textSize="@dimen/sp_14" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/btn_refresh"
+                android:layout_width="@dimen/dp_26"
+                android:layout_height="@dimen/dp_26"
+                android:background="@null"
+                android:padding="@dimen/dp_6"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_wallet_refresh" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_recharge_jilu"
+            android:layout_width="@dimen/dp_87"
+            android:layout_height="@dimen/dp_26"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_recharge_jilu" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/leftRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:background="@drawable/ic_qipai_left" />
+
+        <FrameLayout
+            android:id="@+id/fl_recharge_contain"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+</LinearLayout>

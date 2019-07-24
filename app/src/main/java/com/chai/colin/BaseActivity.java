@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.chai.colin.util.EventBusHelper;
 import com.chai.colin.util.SoundPoolUtil;
+import com.chai.colin.widget.LoadingDialog;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -22,7 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private NetworkChangeReceiver receiver;
     protected static float volume = 0.8F;
     protected static float volumeBg = 0.8F;
-
+    protected LoadingDialog loadingDialog;
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 //        StatusBarUtil.setLightMode(this);
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        View view  = LayoutInflater.from(this).inflate(R.layout.layout_loading, null);
+        this.loadingDialog = new LoadingDialog(this, R.style.MobileDialog);
+        this.loadingDialog.initDialog(view);
         registerNetworkChangeReceiver();
         initView();
         initData();
@@ -103,5 +108,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void stopMusic(int paramInt) {
         SoundPoolUtil.stop(paramInt);
+    }
+    public void showLoading(){
+        loadingDialog.showDialog();
+    }
+    public void hideLoading(){
+        loadingDialog.dismissDialog();
     }
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/ic_qipai_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/wd_title"
+        layout="@layout/activity_topbar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0pt"
+        android:layout_weight="1.0"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/rg_draw"
+            android:layout_width="@dimen/dp_143"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/ic_qipai_left"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/btn_to_bank"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/bank_select"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <RadioButton
+                android:id="@+id/btn_blance"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/blance_select" />
+
+            <RadioButton
+                android:id="@+id/btn_card"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/card_select" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/fl_wd_contain"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

@@ -10,14 +10,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
 import com.chai.colin.R;
 import com.chai.colin.util.SPUtils;
 import com.chai.colin.util.Utils;
 
-public class LoginDialog extends DialogFragment {
+public class LoginDialog extends BaseDialogFragment {
     public static LoginDialog newInstance(String account, String password) {
         LoginDialog frag = new LoginDialog();
         Bundle args = new Bundle();
@@ -54,6 +51,7 @@ public class LoginDialog extends DialogFragment {
 
         textview1.setOnClickListener(view13 -> {
             dismiss();
+            mContext.showFragment(new RegisterDialog());
 //               registerDialog.(MainActivity.this).registerEnter();
         });
         imagebutton.setOnClickListener(view14 -> {
@@ -84,23 +82,6 @@ public class LoginDialog extends DialogFragment {
 //                MainActivity.e(MainActivity.this).login(view);
         });
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.MobileDialog);
-    }
-
-//    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//
-//        WindowManager.LayoutParams attributes = getDialog().getWindow().getAttributes();
-//        attributes.gravity = 17;
-//        attributes.height = -2;
-//        attributes.width = -2;
-//        getDialog().getWindow().setAttributes(attributes);
-//    }
 
 
 }

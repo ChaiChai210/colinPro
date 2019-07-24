@@ -5,24 +5,18 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 
 import com.chai.colin.R;
 import com.chai.colin.util.ToastUtil;
 import com.chai.colin.util.Utils;
 import com.chai.colin.widget.CheckView;
 
-public class RegisterDialog extends DialogFragment {
+public class RegisterDialog extends BaseDialogFragment {
 //    public static RegisterDialog newInstance(String account, String password) {
 //        RegisterDialog frag = new RegisterDialog();
 //        Bundle args = new Bundle();
@@ -150,26 +144,11 @@ public class RegisterDialog extends DialogFragment {
                     return;
                 }
                 //todo 注册逻辑
+
             }
 
 
         });
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.MobileDialog);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        WindowManager.LayoutParams attributes = getDialog().getWindow().getAttributes();
-        attributes.gravity = 17;
-        attributes.height = -2;
-        attributes.width = -1;
-        getDialog().getWindow().setAttributes(attributes);
     }
 
 

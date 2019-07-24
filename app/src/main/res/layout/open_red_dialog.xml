@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <View
+        android:id="@+id/view_open_red"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/transparent" />
+
+    <ImageView
+        android:id="@+id/img_open_red"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dp_80"
+        android:src="@drawable/ic_red_success" />
+
+    <TextView
+        android:id="@+id/tv_ren_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="@dimen/dp_20"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/sp_40" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="@dimen/dp_130"
+        android:text="@string/send_money_wallet"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/sp_10" />
+</RelativeLayout>

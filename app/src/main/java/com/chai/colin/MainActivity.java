@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.view.View;
 
 import com.aquery.AQuery;
+import com.chai.colin.activity.CustomerServiceActivity;
+import com.chai.colin.activity.HuoDongActivity;
+import com.chai.colin.activity.XimaActivity;
+import com.chai.colin.dialog.BaseDialogFragment;
 import com.chai.colin.dialog.LoginDialog;
 import com.chai.colin.dialog.RegisterDialog;
 import com.chai.colin.dialog.SettingDialog;
@@ -28,7 +32,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         aq.id(R.id.btn_setting).click(this);
         aq.id(R.id.btn_register).click(this);
         aq.id(R.id.btn_copy).click(this);
-        playMusic(5, volume);
+        aq.id(R.id.btn_activity).click(this);
+//        playMusic(5, volume);
+//        showLoading();
     }
 
     @Override
@@ -38,17 +44,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        hideLoading();
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
-                LoginDialog fm1 = LoginDialog.newInstance("", "");
-                fm1.show(getSupportFragmentManager(), "login");
+//                LoginDialog fm1 = LoginDialog.newInstance("", "");
+//                fm1.show(getSupportFragmentManager(), "login");
 //                showLoginDialog();
-
+                showFragment(LoginDialog.newInstance("", ""));
                 break;
             case R.id.btn_register:
-                RegisterDialog fm3 = new RegisterDialog();
-                fm3.show(getSupportFragmentManager(), "register");
+                showFragment(new RegisterDialog());
+//                RegisterDialog fm3 = new RegisterDialog();
+//                fm3.show(getSupportFragmentManager(), "register");
                 break;
             case R.id.btn_setting:
 //                showSettingDialog();
@@ -57,6 +75,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_customer:
                 startActivity(new Intent(this, CustomerServiceActivity.class));
+                break;
+            case R.id.btn_activity:
+                startActivity(new Intent(this, HuoDongActivity.class));
                 break;
             case R.id.btn_shuffle:
                 if (accountBalance) {
@@ -70,5 +91,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    public void showFragment(BaseDialogFragment fm) {
+        fm.show(getSupportFragmentManager(), fm.getClass().getName());
+    }
 
 }

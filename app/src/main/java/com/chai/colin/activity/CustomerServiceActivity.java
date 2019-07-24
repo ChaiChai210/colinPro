@@ -1,9 +1,11 @@
-package com.chai.colin;
+package com.chai.colin.activity;
 
 import android.view.View;
 import android.widget.RadioButton;
 
 import com.aquery.AQuery;
+import com.chai.colin.BaseActivity;
+import com.chai.colin.R;
 
 public class CustomerServiceActivity
         extends BaseActivity
