@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_539"
+        android:layout_height="@dimen/dp_314">
+
+        <ImageView
+            android:id="@+id/img_dialog_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_dialog_bj" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_17"
+            android:src="@drawable/ic_login_title" />
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="@dimen/dp_36"
+            android:layout_alignTop="@id/img_dialog_bg"
+            android:layout_alignEnd="@id/img_dialog_bg"
+            android:background="@null"
+            android:src="@drawable/ic_close" />
+
+        <com.xw.repo.widget.BounceScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignBottom="@+id/img_dialog_bg"
+            android:layout_marginTop="@dimen/dp_90"
+            android:layout_marginBottom="@dimen/dp_6"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|right"
+                        android:text="@string/account"
+                        android:textColor="@color/head_color"
+                        android:textSize="@dimen/sp_18" />
+
+                    <EditText
+                        android:id="@+id/et_account"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_42"
+                        android:layout_marginStart="@dimen/dp_42"
+                        android:background="@drawable/ic_input_bg"
+                        android:hint="@string/please_input_account"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/dp_22"
+                        android:paddingEnd="@dimen/dp_22"
+                        android:textColor="#ffffffff"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/sp_14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_account"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp_28"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|right"
+                        android:text="@string/pwd"
+                        android:textColor="@color/head_color"
+                        android:textSize="@dimen/sp_18" />
+
+                    <EditText
+                        android:id="@+id/et_pwd"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_42"
+                        android:layout_marginStart="@dimen/dp_42"
+                        android:background="@drawable/ic_input_bg"
+                        android:hint="@string/please_input_pwd"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        android:paddingStart="@dimen/dp_22"
+                        android:paddingEnd="@dimen/dp_22"
+                        android:textColor="#ffffffff"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/sp_14"
+                        android:windowSoftInputMode="stateAlwaysHidden" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_forget_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_pass"
+                    android:layout_alignEnd="@+id/ll_pass"
+                    android:layout_marginTop="@dimen/dp_7"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:text="@string/forget_pwd"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sp_13" />
+
+                <CheckBox
+                    android:id="@+id/cb_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/btn_login"
+                    android:layout_alignBottom="@+id/btn_login"
+                    android:layout_toStartOf="@+id/btn_login"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableStart="@drawable/remember_account_select"
+                    android:drawablePadding="@dimen/dp_9"
+                    android:text="@string/save_account"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/sp_15" />
+
+                <ImageButton
+                    android:id="@+id/btn_login"
+                    android:layout_width="@dimen/dp_146"
+                    android:layout_height="@dimen/dp_45"
+                    android:layout_below="@+id/tv_forget_pwd"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/dp_25"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:background="@null"
+                    android:src="@drawable/ic_login_button" />
+
+                <TextView
+                    android:id="@+id/tv_no_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/btn_login"
+                    android:layout_alignBottom="@+id/btn_login"
+                    android:layout_toEndOf="@+id/btn_login"
+                    android:gravity="center"
+                    android:text="@string/have_no_account"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/sp_15" />
+
+                <TextView
+                    android:id="@+id/tv_go_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/btn_login"
+                    android:layout_alignBottom="@+id/btn_login"
+                    android:layout_toEndOf="@+id/tv_no_account"
+                    android:gravity="center"
+                    android:text="@string/register_now"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/sp_15" />
+            </RelativeLayout>
+        </com.xw.repo.widget.BounceScrollView>
+    </RelativeLayout>
+</LinearLayout>

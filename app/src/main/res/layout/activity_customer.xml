@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/ic_qipai_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_topbar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0pt"
+        android:layout_weight="1.0"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="@dimen/dp_143"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/ic_qipai_left"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/btn_online"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/online_select"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <RadioButton
+                android:id="@+id/btn_qq"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/qq_select" />
+
+            <RadioButton
+                android:id="@+id/btn_vx"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/vx_select" />
+
+            <RadioButton
+                android:id="@+id/btn_fqc"
+                style="@style/qipai_list"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@drawable/fqc_select" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@id/fl_wd_contain"
+            android:layout_width="0.0pt"
+            android:layout_height="fill_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1.0"
+            android:background="@null" />
+    </LinearLayout>
+</LinearLayout>

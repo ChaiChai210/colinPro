@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_539"
+        android:layout_height="@dimen/dp_314">
+
+        <ImageView
+            android:id="@id/img_dialog_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_register_bg"
+            android:layout_centerInParent="true" />
+
+        <ImageButton
+            android:id="@id/btn_close"
+            android:background="@null"
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="@dimen/dp_36"
+            android:src="@drawable/ic_close"
+            android:layout_alignTop="@id/img_dialog_bg"
+            android:layout_alignEnd="@id/img_dialog_bg" />
+
+        <com.xw.repo.widget.BounceScrollView
+            android:paddingBottom="@dimen/dp_13"
+            android:scrollbars="none"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/dp_57"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dp_13"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:textSize="@dimen/sp_18"
+                    android:textColor="@color/pc_dark_yellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sorry_no_channel" />
+
+                <TextView
+                    android:textSize="@dimen/sp_18"
+                    android:textColor="@color/pc_dark_yellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/please_forgive_me" />
+            </LinearLayout>
+        </com.xw.repo.widget.BounceScrollView>
+    </RelativeLayout>
+</LinearLayout>

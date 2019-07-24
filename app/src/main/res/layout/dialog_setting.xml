@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_539"
+        android:layout_height="@dimen/dp_314">
+
+        <ImageView
+            android:id="@id/img_dialog_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_dialog_bj" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_17"
+            android:src="@drawable/ic_setting_title" />
+
+        <ImageButton
+            android:id="@id/btn_close"
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="@dimen/dp_36"
+            android:layout_alignTop="@id/img_dialog_bg"
+            android:layout_alignEnd="@id/img_dialog_bg"
+            android:background="@null"
+            android:src="@drawable/ic_close" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/dp_58"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/rg_setting"
+                    android:layout_width="@dimen/dp_137"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="@dimen/dp_13">
+
+                    <RadioButton
+                        android:id="@+id/rBtn_setting_sound"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_48"
+                        android:background="@drawable/setting_sound_select"
+                        android:button="@null"
+                        android:checked="true"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <RadioButton
+                        android:id="@+id/rBtn_setting_password_replace"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_48"
+                        android:background="@drawable/setting_password_select"
+                        android:button="@null"
+                        android:visibility="gone" />
+
+                    <RadioButton
+                        android:id="@+id/rBtn_setting_app_replace"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_48"
+                        android:background="@drawable/setting_replace_select"
+                        android:button="@null" />
+                </RadioGroup>
+
+                <FrameLayout
+                    android:id="@+id/fl_setting_right"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginEnd="@dimen/dp_13" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>
