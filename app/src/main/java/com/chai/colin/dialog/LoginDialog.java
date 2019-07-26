@@ -52,6 +52,7 @@ public class LoginDialog extends BaseDialogFragment {
         textview1.setOnClickListener(view13 -> {
             dismiss();
             mContext.showFragment(new RegisterDialog());
+
 //               registerDialog.(MainActivity.this).registerEnter();
         });
         imagebutton.setOnClickListener(view14 -> {

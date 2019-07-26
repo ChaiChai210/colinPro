@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/ic_qipai_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_topbar" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dp_58"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_10">
+
+        <RadioButton
+            android:id="@+id/ib_mypromotion"
+            style="@style/promotion_list"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@drawable/select_promotion_my"
+            android:gravity="center_vertical" />
+
+        <RadioButton
+            android:id="@+id/ib_memeber"
+            style="@style/promotion_list"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@drawable/select_promotion_member"
+            android:gravity="center_vertical" />
+
+        <RadioButton
+            android:id="@+id/ib_performance"
+            style="@style/promotion_list"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@drawable/select_promotion_profit"
+            android:gravity="center_vertical" />
+
+        <RadioButton
+            android:id="@+id/ib_instruction"
+            style="@style/promotion_list"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@drawable/select_promotion_course"
+            android:gravity="center_vertical" />
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/rl_memeber"-->
+        <!--android:layout_width="0.0dip"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_weight="1.0">-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/ib_memeber"-->
+        <!--android:layout_width="120.0dip"-->
+        <!--android:layout_height="40.0dip"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@drawable/memeber_no" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/rl_performance"-->
+        <!--android:layout_width="0.0dip"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_weight="1.0">-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/ib_performance"-->
+        <!--android:layout_width="120.0dip"-->
+        <!--android:layout_height="40.0dip"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@drawable/performance_no" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/rl_instruction"-->
+        <!--android:layout_width="0.0dip"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_weight="1.0">-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/ib_instruction"-->
+        <!--android:layout_width="120.0dip"-->
+        <!--android:layout_height="40.0dip"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@drawable/instruction_no" />-->
+        <!--</RelativeLayout>-->
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fl_containner"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_10" />
+</LinearLayout>

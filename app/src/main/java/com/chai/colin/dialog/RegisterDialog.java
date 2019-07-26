@@ -144,7 +144,6 @@ public class RegisterDialog extends BaseDialogFragment {
                     return;
                 }
                 //todo 注册逻辑
-
             }
 
 

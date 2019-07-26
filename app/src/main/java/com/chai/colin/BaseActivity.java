@@ -12,6 +12,7 @@ import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.chai.colin.dialog.BaseDialogFragment;
 import com.chai.colin.util.EventBusHelper;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.widget.LoadingDialog;
@@ -114,5 +115,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
     public void hideLoading(){
         loadingDialog.dismissDialog();
+    }
+
+    public void showFragment(BaseDialogFragment fm) {
+        fm.show(getSupportFragmentManager(), fm.getClass().getName());
     }
 }

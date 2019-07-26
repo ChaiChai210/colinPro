@@ -35,4 +35,7 @@ dependencies {
     implementation 'com.github.ar-android:AQuery:1.0.3'
     implementation 'com.liyi.view:multiple-status-view:1.0.1'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    implementation 'com.jungly:gridPasswordView:0.3'
 }

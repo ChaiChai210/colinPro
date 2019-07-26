@@ -31,7 +31,7 @@ public class ToastUtil {
         showToast(mContext.getResources().getText(strResID));
     }
 
-    public void showToast(CharSequence str) { // 根据字符串弹Toast
+    public  void showToast(CharSequence str) { // 根据字符串弹Toast
         if (mContext == null) {
             throw new RuntimeException("Please init the Context before showToast");
         }

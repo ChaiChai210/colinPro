@@ -6,10 +6,13 @@ import android.view.View;
 import com.aquery.AQuery;
 import com.chai.colin.activity.CustomerServiceActivity;
 import com.chai.colin.activity.HuoDongActivity;
+import com.chai.colin.activity.NewExtensionActivity;
+import com.chai.colin.activity.RechargeActivity;
+import com.chai.colin.activity.WithDrawActivity;
 import com.chai.colin.activity.XimaActivity;
-import com.chai.colin.dialog.BaseDialogFragment;
 import com.chai.colin.dialog.LoginDialog;
 import com.chai.colin.dialog.RegisterDialog;
+import com.chai.colin.dialog.SafePwdDialog;
 import com.chai.colin.dialog.SettingDialog;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.util.ToastUtil;
@@ -33,6 +36,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         aq.id(R.id.btn_register).click(this);
         aq.id(R.id.btn_copy).click(this);
         aq.id(R.id.btn_activity).click(this);
+        aq.id(R.id.btn_withdrawal).click(this);
+        aq.id(R.id.btn_recharge).click(this);
+        aq.id(R.id.btn_promotion).click(this);
+        aq.id(R.id.btn_shuffle).click(this);
+        aq.id(R.id.btn_safe_box).click(this);
 //        playMusic(5, volume);
 //        showLoading();
     }
@@ -79,20 +87,42 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_activity:
                 startActivity(new Intent(this, HuoDongActivity.class));
                 break;
+            case R.id.btn_withdrawal:
+                startActivity(new Intent(this, WithDrawActivity.class));
+                break;
+            case R.id.btn_recharge:
+                startActivity(new Intent(this, RechargeActivity.class));
+//                if (accountBalance) {
+//                    startActivity(new Intent(this, RechargeActivity.class));
+//                }
+
+                break;
+            case R.id.btn_promotion:
+                startActivity(new Intent(this, NewExtensionActivity.class));
+//                if (accountBalance) {
+//                    startActivity(new Intent(this, RechargeActivity.class));
+//                }
+
+                break;
             case R.id.btn_shuffle:
-                if (accountBalance) {
-                    startActivity(new Intent(this, XimaActivity.class));
-                }
+                startActivity(new Intent(this, XimaActivity.class));
+//                if (accountBalance) {
+//                    startActivity(new Intent(this, XimaActivity.class));
+//                }
                 break;
             case R.id.btn_copy:
 //                Utils.copyToClipboard(this.mContext, UrlHelper.OFFICIAL_URL);
                 ToastUtil.getInstance().showToast("复制成功");
                 break;
+            case R.id.btn_safe_box:
+//                  if (paramInt == 901) {
+//      showPwdDialog();
+//    } else if (paramInt == 902) {
+//      showPwdInputDialog();
+                showFragment(SafePwdDialog.newInstance());
+                break;
         }
     }
 
-    public void showFragment(BaseDialogFragment fm) {
-        fm.show(getSupportFragmentManager(), fm.getClass().getName());
-    }
 
 }

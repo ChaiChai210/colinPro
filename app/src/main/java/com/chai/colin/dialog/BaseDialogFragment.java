@@ -7,12 +7,12 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.chai.colin.MainActivity;
+import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
 
 public class BaseDialogFragment extends DialogFragment {
 
-    protected MainActivity mContext;
+    protected BaseActivity mContext;
 
 
     @Override
@@ -34,7 +34,7 @@ public class BaseDialogFragment extends DialogFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mContext = (MainActivity) context;
+        mContext = (BaseActivity) context;
     }
 
     @Override

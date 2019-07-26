@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <View
+        android:id="@+id/v_center"
+        android:layout_width="@dimen/dp_52"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:background="@null" />
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/v_center"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:visibility="visible"
+        app:srlDragRate="0.2"
+        app:srlEnableOverScrollDrag="true"
+        app:srlEnablePureScrollMode="true">
+
+        <com.chai.colin.widget.MultipleStatusView
+            android:id="@+id/msv_bank_card"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </com.chai.colin.widget.MultipleStatusView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_input_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/v_center"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|top">
+
+            <TextView
+                android:id="@+id/tv_card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_input_name"
+                android:layout_alignBottom="@+id/tv_input_name"
+                android:gravity="end|center"
+                android:text="@string/card_name"
+                android:textColor="@color/color_bank_card_text"
+                android:textSize="@dimen/sp_15" />
+
+            <EditText
+                android:id="@+id/tv_input_name"
+                android:layout_width="@dimen/dp_255"
+                android:layout_height="@dimen/dp_33"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_toEndOf="@+id/tv_card_name"
+                android:background="@drawable/ic_input_bg"
+                android:gravity="center_vertical"
+                android:hint="@string/please_input_card_name"
+                android:imeOptions="flagNoExtractUi"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10"
+                android:textColor="#ffffffff"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/sp_18" />
+
+            <TextView
+                android:id="@+id/tv_chose_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ed_input_chose_bank"
+                android:layout_alignEnd="@+id/tv_card_name"
+                android:layout_alignBottom="@+id/ed_input_chose_bank"
+                android:gravity="end|center"
+                android:text="@string/chose_bank"
+                android:textColor="@color/color_bank_card_text"
+                android:textSize="@dimen/sp_15" />
+
+            <EditText
+                android:id="@+id/ed_input_chose_bank"
+                android:layout_width="@dimen/dp_181"
+                android:layout_height="@dimen/dp_33"
+                android:layout_below="@+id/tv_input_name"
+                android:layout_alignStart="@+id/tv_input_name"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_toStartOf="@+id/ib_chose"
+                android:background="@drawable/ic_input_bg"
+                android:enabled="false"
+                android:hint="@string/hint_chose_bank"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10"
+                android:textColor="#ffffffff"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/sp_18" />
+
+            <ImageButton
+                android:id="@+id/ib_chose"
+                android:layout_width="@dimen/dp_63"
+                android:layout_height="@dimen/dp_30"
+                android:layout_alignTop="@+id/ed_input_chose_bank"
+                android:layout_alignEnd="@+id/tv_input_name"
+                android:layout_alignBottom="@+id/ed_input_chose_bank"
+                android:layout_marginStart="@dimen/dp_10"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_btn_chose" />
+
+            <TextView
+                android:id="@+id/tv_card_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ed_card_num"
+                android:layout_alignEnd="@+id/tv_card_name"
+                android:layout_alignBottom="@+id/ed_card_num"
+                android:gravity="end|center"
+                android:text="@string/card_num"
+                android:textColor="@color/color_bank_card_text"
+                android:textSize="@dimen/sp_15" />
+
+            <EditText
+                android:id="@+id/ed_card_num"
+                android:layout_width="@dimen/dp_255"
+                android:layout_height="@dimen/dp_33"
+                android:layout_below="@+id/ed_input_chose_bank"
+                android:layout_alignStart="@+id/tv_input_name"
+                android:layout_marginTop="@dimen/dp_15"
+                android:background="@drawable/ic_input_bg"
+                android:hint="@string/hint_input_car_num"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="number"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10"
+                android:textColor="#ffffffff"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/sp_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ed_open_addr"
+                android:layout_alignEnd="@+id/tv_card_name"
+                android:layout_alignBottom="@+id/ed_open_addr"
+                android:gravity="end|center"
+                android:text="@string/open_addr"
+                android:textColor="@color/color_bank_card_text"
+                android:textSize="@dimen/sp_15" />
+
+            <EditText
+                android:id="@+id/ed_open_addr"
+                android:layout_width="@dimen/dp_255"
+                android:layout_height="@dimen/dp_33"
+                android:layout_below="@+id/ed_card_num"
+                android:layout_alignStart="@+id/tv_input_name"
+                android:layout_marginTop="@dimen/dp_15"
+                android:background="@drawable/ic_input_bg"
+                android:hint="@string/hint_input_open_addr"
+                android:imeOptions="flagNoExtractUi"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10"
+                android:textColor="#ffffffff"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/sp_18" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="@string/bank_tips"
+            android:textColor="@color/color_bank_card_text"
+            android:textSize="@dimen/sp_12" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ib_add_card"
+        android:layout_width="@dimen/dp_146"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:background="@null"
+        android:src="@drawable/ic_btn_add_bank" />
+
+
+
+    <ImageButton
+        android:id="@+id/ib_upper"
+        android:layout_width="@dimen/dp_146"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_toStartOf="@id/v_center"
+        android:background="@null"
+        android:src="@drawable/ic_btn_upper"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/ib_bind"
+        android:layout_width="@dimen/dp_146"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_toEndOf="@id/v_center"
+        android:background="@null"
+        android:src="@drawable/ic_btn_bind"
+        android:visibility="gone" />
+</RelativeLayout>
