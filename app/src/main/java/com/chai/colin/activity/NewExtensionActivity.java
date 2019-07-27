@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
-import com.chai.colin.fragment.WDBankFragment;
+import com.chai.colin.fragment.MyPromotionFragment;
 import com.chai.colin.fragment.WDBlanceFragment;
 import com.chai.colin.fragment.WDCardFragment;
 
@@ -17,7 +17,7 @@ public class NewExtensionActivity
         extends BaseActivity
         implements View.OnClickListener {
     private static final String TAG = "NewExtensionActivity";
-    WDBankFragment bankFragment = new WDBankFragment();
+    MyPromotionFragment bankFragment = new MyPromotionFragment();
     WDBlanceFragment e = new WDBlanceFragment();
     WDCardFragment f = new WDCardFragment();
 
