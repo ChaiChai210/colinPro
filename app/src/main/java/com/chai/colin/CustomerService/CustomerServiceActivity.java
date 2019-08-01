@@ -1,28 +1,30 @@
-package com.chai.colin.activity;
+package com.chai.colin.CustomerService;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
-import com.chai.colin.fragment.QqFragment;
 
 public class CustomerServiceActivity
         extends BaseActivity
         implements View.OnClickListener {
     private static final String TAG = "CustomerServiceActivity";
     //    OnlineFragment c = new OnlineFragment();
-    QqFragment d = new QqFragment();
-    //    VxFragment e = new VxFragment();
-//    FqcFragment f = new FqcFragment();
+    QqFragment qqFragment = new QqFragment();
+    VxFragment vxFragment = new VxFragment();
+    FqcFragment fqcFragment = new FqcFragment();
     private ImageView img_back_bg;
     private ImageView img_title;
     RadioButton btn_online;
     RadioButton btn_qq;
     RadioButton btn_vx;
     RadioButton btn_fqc;
-
+    private Fragment currentFragment = qqFragment;
 //    protected void onActivityResult(int paramInt1, int paramInt2, @Nullable Intent paramIntent) {
 //        EventBus.getDefault().post(new CustomerEvent(paramInt1, paramIntent));
 //    }
@@ -35,13 +37,16 @@ public class CustomerServiceActivity
                 finish();
                 break;
             case R.id.btn_online:
-//                getSupportFragmentManager().beginTransaction().hide(this.c).hide(this.d).hide(this.e).show(this.f).commitAllowingStateLoss();
+//                switchFragment(bankFragment);
                 break;
             case R.id.btn_qq:
+                switchFragment(qqFragment);
                 break;
             case R.id.btn_vx:
+                switchFragment(vxFragment);
                 break;
             case R.id.btn_fqc:
+                switchFragment(fqcFragment);
                 break;
         }
     }
@@ -65,7 +70,7 @@ public class CustomerServiceActivity
         btn_qq = findViewById(R.id.btn_qq);
         btn_vx = findViewById(R.id.btn_vx);
         btn_fqc = findViewById(R.id.btn_fqc);
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_wd_contain, d).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_wd_contain, currentFragment).commit();
         initListener();
     }
 
@@ -83,6 +88,26 @@ public class CustomerServiceActivity
 //        super.onPause();
 //        stopMusic(12);
 //    }
+    }
+
+    private void switchFragment(Fragment targetFragment) {
+        if (currentFragment == targetFragment) {
+            return;
+        }
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction();
+        if (!targetFragment.isAdded()) {
+            transaction
+                    .hide(currentFragment)
+                    .add(R.id.fl_wd_contain, targetFragment)
+                    .commit();
+        } else {
+            transaction
+                    .hide(currentFragment)
+                    .show(targetFragment)
+                    .commit();
+        }
+        currentFragment = targetFragment;
     }
 }
 

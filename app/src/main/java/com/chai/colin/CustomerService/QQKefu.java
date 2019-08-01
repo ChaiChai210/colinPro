@@ -1,4 +1,4 @@
-package com.chai.colin.entity;
+package com.chai.colin.CustomerService;
 
 public class QQKefu
 {

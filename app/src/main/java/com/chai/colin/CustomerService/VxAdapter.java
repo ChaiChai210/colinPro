@@ -1,4 +1,4 @@
-package com.chai.colin.adapter;
+package com.chai.colin.CustomerService;
 
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -10,16 +10,15 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chai.colin.R;
-import com.chai.colin.entity.QQKefu;
 import com.chai.colin.util.AppUtil;
 
 import java.util.List;
 
-public class QQAdapter extends BaseQuickAdapter<QQKefu, BaseViewHolder> {
+public class VxAdapter extends BaseQuickAdapter<QQKefu, BaseViewHolder> {
     //    CircleImageView circleImageView;
     ImageView circleImageView;
 
-    public QQAdapter(int layoutResId, @Nullable List<QQKefu> data) {
+    public VxAdapter(int layoutResId, @Nullable List<QQKefu> data) {
         super(layoutResId, data);
     }
 
@@ -29,10 +28,12 @@ public class QQAdapter extends BaseQuickAdapter<QQKefu, BaseViewHolder> {
         circleImageView = helper.getView(R.id.home_read_piv_iv);
         Glide.with(mContext).load(item.getQqTempUrl()).transform(new CircleCrop()).into(circleImageView);
         helper.setText(R.id.tv_account, item.getQq());
+        helper.setText(R.id.tv_vx, new StringBuilder("微信客服").append(helper.getAdapterPosition() + 1));
         helper.setText(R.id.tv_name, item.getQqName());
-        ImageButton ib = helper.getView(R.id.btn_lianxi_kefu);
+        ImageButton ib = helper.getView(R.id.btn_vx_kefu);
         ib.setOnClickListener(view -> {
-            AppUtil.luncherQQ(mContext, item.getQq());
+//            AppUtil.getWechatApi(mContext);
+            AppUtil.startAPP(mContext,"com.tencent.mm");
         });
     }
 }

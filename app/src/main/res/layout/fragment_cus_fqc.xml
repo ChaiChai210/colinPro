@@ -17,7 +17,8 @@
         <com.chai.colin.widget.MultipleStatusView
             android:id="@+id/mulstatus_view"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+           >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fqc_rv"

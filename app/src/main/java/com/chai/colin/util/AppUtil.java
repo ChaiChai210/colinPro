@@ -1,5 +1,6 @@
 package com.chai.colin.util;
 
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -104,7 +105,7 @@ public class AppUtil {
 //                Toast.makeText(this, "启动异常", Toast.LENGTH_SHORT).show();
 //            }
 //        }
-    public void startAPP(Context context, String appPackageName) {
+    public static void startAPP(Context context, String appPackageName) {
         try {
             Intent intent = context.getPackageManager().getLaunchIntentForPackage(appPackageName);
             context.startActivity(intent);
@@ -133,13 +134,27 @@ public class AppUtil {
 
 
     public static void luncherQQ(Context context, String paramString) {
-        if (isAppInstalled(context,"com.tencent.mobileqq")) {
+        if (isAppInstalled(context, "com.tencent.mobileqq")) {
             StringBuilder localStringBuilder = new StringBuilder();
             localStringBuilder.append("mqqwpa://im/chat?chat_type=wpa&uin=");
             localStringBuilder.append(paramString);
             context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(localStringBuilder.toString())));
         } else {
             Toast.makeText(context, R.string.please_download, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static void getWechatApi(Context context) {
+        try {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_MAIN);
+            ComponentName localComponentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setComponent(localComponentName);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            ToastUtil.getInstance().showToast("检查到您手机没有安装微信，请安装后使用该功能");
         }
     }
 }

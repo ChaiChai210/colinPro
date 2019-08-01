@@ -1,4 +1,4 @@
-package com.chai.colin.fragment;
+package com.chai.colin.CustomerService;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chai.colin.R;
-import com.chai.colin.adapter.QQAdapter;
-import com.chai.colin.entity.QQKefu;
 import com.chai.colin.widget.RecycleViewDivider;
 
 import java.util.ArrayList;

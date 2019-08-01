@@ -51,7 +51,7 @@ public class MultipleStatusView
     public MultipleStatusView(Context paramContext, AttributeSet paramAttributeSet, int paramInt) {
         super(paramContext, paramAttributeSet, paramInt);
         TypedArray ta = paramContext.obtainStyledAttributes(paramAttributeSet, R.styleable.MultipleStatusView, paramInt, 0);
-        this.mEmptyViewResId = ta.getResourceId(R.styleable.MultipleStatusView_empty, R.layout.view_empty);
+        this.mEmptyViewResId = ta.getResourceId(R.styleable.MultipleStatusView_emptyView, R.layout.view_empty);
         this.mContentViewResId = ta.getResourceId(0, -1);
         ta.recycle();
         this.mInflater = LayoutInflater.from(paramContext);

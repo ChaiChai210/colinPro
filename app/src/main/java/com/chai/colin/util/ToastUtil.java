@@ -10,7 +10,8 @@ public class ToastUtil {
 
     private Context mContext; // 上下文对象
 
-    private ToastUtil(){} // 私有化构造
+    private ToastUtil() {
+    } // 私有化构造
 
     private static final class Helper {
         static final ToastUtil INSTANCE = new ToastUtil();
@@ -20,7 +21,7 @@ public class ToastUtil {
         return Helper.INSTANCE;
     }
 
-    public static void init(@NonNull Context context){ // 初始化Context
+    public static void init(@NonNull Context context) { // 初始化Context
         getInstance().mContext = context;
     }
 
@@ -31,7 +32,7 @@ public class ToastUtil {
         showToast(mContext.getResources().getText(strResID));
     }
 
-    public  void showToast(CharSequence str) { // 根据字符串弹Toast
+    public void showToast(CharSequence str) { // 根据字符串弹Toast
         if (mContext == null) {
             throw new RuntimeException("Please init the Context before showToast");
         }

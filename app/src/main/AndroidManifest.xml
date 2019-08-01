@@ -37,7 +37,7 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".activity.CustomerServiceActivity"
+            android:name=".CustomerService.CustomerServiceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
@@ -47,7 +47,7 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".activity.WithDrawActivity"
+            android:name=".Withdraw.WithDrawActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
@@ -57,7 +57,7 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".activity.NewExtensionActivity"
+            android:name=".promotion.NewExtensionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />

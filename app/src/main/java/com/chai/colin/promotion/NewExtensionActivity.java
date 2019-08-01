@@ -1,4 +1,4 @@
-package com.chai.colin.activity;
+package com.chai.colin.promotion;
 
 import android.view.KeyEvent;
 import android.view.View;

@@ -12,7 +12,7 @@ import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
 import com.chai.colin.adapter.ActAdapter;
 import com.chai.colin.entity.ActionItemData;
-import com.liyi.multiple.MultipleStatusView;
+import com.chai.colin.widget.MultipleStatusView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +138,6 @@ public class HuoDongActivity
 //        this.recyclerView.addItemDecoration(new RecycleViewDivider(this.mContext, 1, 20, 2131034153));
         actAdapter = new ActAdapter(R.layout.item_activity, dataList);
         if(dataList.isEmpty()){
-           defaultView.showView(MultipleStatusView.ViewType.TYPE_EMPTY);
         }
         recyclerView.setAdapter(actAdapter);
     }
