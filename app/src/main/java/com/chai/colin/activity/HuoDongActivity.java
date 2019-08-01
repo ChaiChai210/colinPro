@@ -19,8 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 //showRedOpen()弹出领红包界面
-public class HuoDongActivity
-        extends BaseActivity {
+public class HuoDongActivity extends BaseActivity {
     private static final String TAG = "HuoDongActivity";
     private ActAdapter actAdapter;
     private List<Boolean> booleanList = new ArrayList();
@@ -137,7 +136,7 @@ public class HuoDongActivity
         recyclerView.setLayoutManager(linearLayoutManager);
 //        this.recyclerView.addItemDecoration(new RecycleViewDivider(this.mContext, 1, 20, 2131034153));
         actAdapter = new ActAdapter(R.layout.item_activity, dataList);
-        if(dataList.isEmpty()){
+        if (dataList.isEmpty()) {
         }
         recyclerView.setAdapter(actAdapter);
     }
