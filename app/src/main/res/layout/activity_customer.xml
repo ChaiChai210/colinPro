@@ -52,7 +52,7 @@
         </RadioGroup>
 
         <FrameLayout
-            android:id="@id/fl_wd_contain"
+            android:id="@+id/fl_wd_contain"
             android:layout_width="0.0pt"
             android:layout_height="fill_parent"
             android:layout_margin="@dimen/dp_10"

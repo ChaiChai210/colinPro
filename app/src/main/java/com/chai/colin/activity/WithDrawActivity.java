@@ -63,11 +63,9 @@ public class WithDrawActivity
         aq = new AQuery(this);
         btn_to_bank = findViewById(R.id.btn_to_bank);
         //頭部客服
-        aq.id(R.id.img_title).image(R.drawable.ic_withdraw_title);
-//        FragmentManager fm = getSupportFragmentManager();
-//        fm.beginTransaction().add(R.id.fl_wd_contain, c).commit();
+//        aq.id(R.id.img_title).image(R.drawable.ic_withdraw_title);
         initListener();
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_wd_contain, bankFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_wd_contain, e).commit();
     }
 
     private void initListener() {

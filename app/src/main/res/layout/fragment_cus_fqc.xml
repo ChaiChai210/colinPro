@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff2e2e32"
+    android:orientation="vertical">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/sm_refresh"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:srlEnableAutoLoadMore="false"
+        app:srlEnableLoadMore="false"
+        app:srlEnableRefresh="true">
+
+        <com.chai.colin.widget.MultipleStatusView
+            android:id="@+id/mulstatus_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fqc_rv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@null" />
+        </com.chai.colin.widget.MultipleStatusView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

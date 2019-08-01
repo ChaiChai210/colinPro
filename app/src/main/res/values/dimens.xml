@@ -108,4 +108,8 @@
     <dimen name="dp_64">64dp</dimen>
     <dimen name="dp_38">38dp</dimen>
     <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_157">157dp</dimen>
+    <dimen name="dp_225">225dp</dimen>
+    <dimen name="dp_85">85dp</dimen>
+    <dimen name="dp_84">84dp</dimen>
 </resources>

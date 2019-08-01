@@ -24,6 +24,7 @@ import com.chai.colin.util.FileUtils;
 import com.chai.colin.util.ImageUtils;
 import com.chai.colin.util.ToastUtil;
 import com.chai.colin.util.UrlHelper;
+import com.chai.colin.util.Utils;
 import com.chai.colin.widget.LoadingDialog;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXImageObject;
@@ -159,6 +160,7 @@ public class MyPromotionFragment extends Fragment implements View.OnClickListene
 //                }
                 break;
             case R.id.iv_shar_toqq:
+                shareImageCompress();
                 break;
             case R.id.iv_share_tocircle:
                 shareWxImageCompress(true);
@@ -166,10 +168,15 @@ public class MyPromotionFragment extends Fragment implements View.OnClickListene
             case R.id.iv_get_history:
                 break;
             case R.id.iv_copywebsite:
+                Utils.copyToClipboard(getContext(),tv_website.getText().toString());
                 break;
             case R.id.iv_tochart:
                 break;
         }
+    }
+
+    private void shareImageCompress() {
+
     }
 
     private Bitmap shareWXBitmap;

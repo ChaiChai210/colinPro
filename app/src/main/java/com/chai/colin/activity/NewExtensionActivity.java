@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
+import com.chai.colin.fragment.DirectlyFragment;
 import com.chai.colin.fragment.MyPromotionFragment;
-import com.chai.colin.fragment.WDBlanceFragment;
 import com.chai.colin.fragment.WDCardFragment;
 
 public class NewExtensionActivity
@@ -18,7 +18,7 @@ public class NewExtensionActivity
         implements View.OnClickListener {
     private static final String TAG = "NewExtensionActivity";
     MyPromotionFragment bankFragment = new MyPromotionFragment();
-    WDBlanceFragment e = new WDBlanceFragment();
+    DirectlyFragment e = new DirectlyFragment();
     WDCardFragment f = new WDCardFragment();
 
     private RadioButton ib_mypromotion;

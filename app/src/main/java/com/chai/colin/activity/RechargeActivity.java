@@ -5,8 +5,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.aquery.AQuery;
 import com.chai.colin.BaseActivity;
 import com.chai.colin.MyApp;
 import com.chai.colin.R;
@@ -20,10 +21,12 @@ public class RechargeActivity
 //    QqFragment d = new QqFragment();
 //    VxFragment e = new VxFragment();
 //    FqcFragment f = new FqcFragment();
-    AQuery aq;
 
     private ImageButton btnRefresh;
-
+    private ImageView img_back_bg;
+    private ImageView img_title;
+    private TextView tv_golden_account;
+    private ImageButton btn_recharge_jilu;
 //    protected void onActivityResult(int paramInt1, int paramInt2, @Nullable Intent paramIntent) {
 //        EventBus.getDefault().post(new CustomerEvent(paramInt1, paramIntent));
 //    }
@@ -53,7 +56,7 @@ public class RechargeActivity
         localAnimation.setInterpolator(new LinearInterpolator());
         btnRefresh.clearAnimation();
         btnRefresh.startAnimation(localAnimation);
-        aq.id(R.id.tv_golden_account).text("刷新中...");
+        tv_golden_account.setText("刷新中...");
 //        this.f.refreshBalance();
 
     }
@@ -68,17 +71,20 @@ public class RechargeActivity
     protected void initView() {
 //        playMusic(13, volume);
         //加载loading界面。
-        aq = new AQuery(this);
-        aq.id(R.id.img_title).image(R.drawable.ic_recharge_title);
-        aq.id(R.id.tv_golden_account).text(Utils.double2Decimal(MyApp.getInstance().getBalance()));
+        img_back_bg = findViewById(R.id.img_back_bg);
+        img_title = findViewById(R.id.img_title);
+        img_title.setImageResource(R.drawable.ic_recharge_title);
+
+        tv_golden_account = findViewById(R.id.tv_golden_account);
+        tv_golden_account.setText(Utils.double2Decimal(MyApp.getInstance().getBalance()));
+        btn_recharge_jilu = findViewById(R.id.btn_recharge_jilu);
         btnRefresh = findViewById(R.id.btn_refresh);
         initListener();
     }
 
     private void initListener() {
-
-        aq.id(R.id.img_back_bg).click(this);
-        aq.id(R.id.btn_recharge_jilu).click(this);
+        img_back_bg.setOnClickListener(this);
+        btn_recharge_jilu.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
     }
 

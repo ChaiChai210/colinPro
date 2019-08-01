@@ -2,6 +2,7 @@ package com.chai.colin.dialog;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.chai.colin.R;
 import com.chai.colin.util.ToastUtil;
 import com.chai.colin.util.Utils;
 import com.chai.colin.widget.CheckView;
+
+import rxhttp.wrapper.param.RxHttp;
 
 public class RegisterDialog extends BaseDialogFragment {
 //    public static RegisterDialog newInstance(String account, String password) {
@@ -128,6 +131,19 @@ public class RegisterDialog extends BaseDialogFragment {
                     return;
                 }
                 //todo 注册逻辑
+                RxHttp.postForm("userInfoMember/addUserInfoMemberByPhone.do")
+                        .add("memberName",account)
+                        .add("memberPwd",password)
+                        .asString()                //返回String类型
+                        .subscribe(s -> {          //订阅观察者，
+                            //请求成功
+                            Log.e("请求成功",s);
+
+                        }, throwable -> {
+                            //请求失败
+                            Log.e("请求成功","");
+                        });
+
             } else {
                 String phoneNum = et_phone_num.getText().toString().trim();
                 if (TextUtils.isEmpty(phoneNum)) {
@@ -144,6 +160,16 @@ public class RegisterDialog extends BaseDialogFragment {
                     return;
                 }
                 //todo 注册逻辑
+                RxHttp.postJson("/userInfoMember/addUserInfoMember.do")
+                        .add("memberName",phoneNum)
+                        .add("memberPwd",password)
+                        .asString()                //返回String类型
+                        .subscribe(s -> {          //订阅观察者，
+                            //请求成功
+                            Log.e("请求成功",s);
+                        }, throwable -> {
+                            //请求失败
+                        });
             }
 
 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingStart="@dimen/dp_6"
+    android:paddingEnd="@dimen/dp_6">
+
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/round_darkgrey_bg"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_team_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_teamCount"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/team_number_1"
+            android:textColor="#ff606060"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/tv_teamCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ed_findMember"
+            android:layout_alignBottom="@+id/ed_findMember"
+            android:layout_marginStart="@dimen/dp_7"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:layout_toEndOf="@+id/tv_team_member"
+            android:gravity="center_vertical"
+            android:text="0"
+            android:textColor="#ffffcf71"
+            android:textSize="@dimen/sp_15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_teamCount"
+            android:layout_toEndOf="@+id/tv_teamCount"
+            android:gravity="center_vertical"
+            android:text="人"
+            android:textColor="#ffffcf71"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/tv_findMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ed_findMember"
+            android:layout_alignBottom="@+id/ed_findMember"
+            android:layout_toStartOf="@+id/ed_findMember"
+            android:gravity="center"
+            android:text="@string/hui_yuan_search"
+            android:textColor="#ff606060"
+            android:textSize="@dimen/sp_10" />
+
+        <EditText
+            android:id="@+id/ed_findMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ib_find"
+            android:layout_alignEnd="@+id/ib_find"
+            android:layout_alignBottom="@+id/ib_find"
+            android:background="@drawable/ic_member_find_bg"
+            android:hint="@string/yong_jing_research_id"
+            android:imeOptions="flagNoExtractUi"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_10"
+            android:textColor="#ff4c4c4d"
+            android:textColorHint="#ff4c4c4d"
+            android:textSize="@dimen/sp_10" />
+
+        <ImageButton
+            android:id="@+id/ib_find"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_21"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp_11"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_member_find_btn" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_head"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_head_team" />
+
+        <com.chai.colin.widget.MultipleStatusView
+            android:id="@+id/msv_ex_team"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/srl_ex_team"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </com.chai.colin.widget.MultipleStatusView>
+    </LinearLayout>
+</RelativeLayout>

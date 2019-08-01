@@ -104,7 +104,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void playMusic(int paramInt, float paramFloat) {
-        SoundPoolUtil.getInstance(this).play(paramInt, volume);
+        SoundPoolUtil.play(paramInt, volume);
     }
 
     public void stopMusic(int paramInt) {

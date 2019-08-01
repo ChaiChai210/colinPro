@@ -22,10 +22,6 @@
     <color name="brown">#ffa52a2a</color>
     <color name="burlywood">#ffdeb887</color>
     <color name="cadetblue">#ff5f9ea0</color>
-    <color name="cardview_dark_background">#ff424242</color>
-    <color name="cardview_light_background">#ffffffff</color>
-    <color name="cardview_shadow_end_color">#03000000</color>
-    <color name="cardview_shadow_start_color">#37000000</color>
     <color name="cc">#ff59a9ff</color>
     <color name="chartreuse">#ff7fff00</color>
     <color name="chocolate">#ffd2691e</color>
@@ -97,8 +93,6 @@
     <color name="header">#ff58567d</color>
     <color name="help_button_view">#ffcccccc</color>
     <color name="help_view">#ff404040</color>
-    <color name="highlighted_text_material_dark">#6680cbc4</color>
-    <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_color">#ff868689</color>
     <color name="home_yellow">#ffdfa563</color>
     <color name="honeydew">#fff0fff0</color>
@@ -205,8 +199,6 @@
     <color name="result_text">#ffffffff</color>
     <color name="result_view">#b0000000</color>
     <color name="retry_failure_color">#ff3b404c</color>
-    <color name="ripple_material_dark">#33ffffff</color>
-    <color name="ripple_material_light">#1f000000</color>
     <color name="rosybrown">#ffbc8f8f</color>
     <color name="royalblue">#ff4169e1</color>
     <color name="saddlebrown">#ff8b4513</color>
@@ -220,10 +212,6 @@
     <color name="sbc_snippet_text">#ff4b4b4b</color>
     <color name="seaShell">#fffff5ee</color>
     <color name="seagreen">#ff2e8b57</color>
-    <color name="secondary_text_default_material_dark">#b3ffffff</color>
-    <color name="secondary_text_default_material_light">#8a000000</color>
-    <color name="secondary_text_disabled_material_dark">#36ffffff</color>
-    <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="share_text">#ff000000</color>
     <color name="share_view">#ffffffff</color>
     <color name="sienna">#ffa0522d</color>
@@ -237,10 +225,6 @@
     <color name="status_text">#ffffffff</color>
     <color name="status_view">#50000000</color>
     <color name="steelblue">#ff4682b4</color>
-    <color name="switch_thumb_disabled_material_dark">#ff616161</color>
-    <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
-    <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
-    <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="tan">#ffd2b48c</color>
     <color name="teal">#ff008080</color>
     <color name="text_color">#ffe3d7c0</color>
@@ -248,8 +232,6 @@
     <color name="text_yellow_light">#fffcd8a7</color>
     <color name="thistle">#ffd8bfd8</color>
     <color name="tomato">#ffff6347</color>
-    <color name="tooltip_background_dark">#e6616161</color>
-    <color name="tooltip_background_light">#e6ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="turquoise">#ff40e0d0</color>
     <color name="viewfinder_frame">#ff000000</color>

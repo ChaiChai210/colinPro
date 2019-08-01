@@ -16,6 +16,8 @@ import com.chai.colin.dialog.SafePwdDialog;
 import com.chai.colin.dialog.SettingDialog;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.util.ToastUtil;
+import com.chai.colin.util.UrlHelper;
+import com.chai.colin.util.Utils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -41,7 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         aq.id(R.id.btn_promotion).click(this);
         aq.id(R.id.btn_shuffle).click(this);
         aq.id(R.id.btn_safe_box).click(this);
-//        playMusic(5, volume);
+        playMusic(5, volume);
 //        showLoading();
     }
 
@@ -103,6 +105,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                    startActivity(new Intent(this, RechargeActivity.class));
 //                }
 
+
                 break;
             case R.id.btn_shuffle:
                 startActivity(new Intent(this, XimaActivity.class));
@@ -111,7 +114,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                }
                 break;
             case R.id.btn_copy:
-//                Utils.copyToClipboard(this.mContext, UrlHelper.OFFICIAL_URL);
+                Utils.copyToClipboard(this.mContext, UrlHelper.OFFICIAL_URL);
                 ToastUtil.getInstance().showToast("复制成功");
                 break;
             case R.id.btn_safe_box:
