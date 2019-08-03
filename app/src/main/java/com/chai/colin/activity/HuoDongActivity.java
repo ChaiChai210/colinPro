@@ -98,6 +98,7 @@ public class HuoDongActivity extends BaseActivity {
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_huo_dong;
+
     }
 
     @Override

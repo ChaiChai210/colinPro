@@ -3,6 +3,7 @@ package com.chai.colin;
 import android.app.Application;
 import android.content.Context;
 
+import com.chai.colin.util.MediaPlayUtil;
 import com.chai.colin.util.SPUtils;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.util.ToastUtil;
@@ -25,7 +26,7 @@ public class MyApp extends Application {
         mInstance = this;
 
         SoundPoolUtil.getInstance(this);
-//        MediaPlayUtil.getInstance(this);
+        MediaPlayUtil.getInstance(this);
 
         SPUtils.getInstance().init(this);
         //在这里为应用设置异常处理程序，然后我们的程序才能捕获未处理的异常

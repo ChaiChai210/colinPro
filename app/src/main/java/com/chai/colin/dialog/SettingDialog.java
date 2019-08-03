@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chai.colin.R;
+import com.chai.colin.util.MediaPlayUtil;
+import com.chai.colin.util.SPUtils;
+import com.chai.colin.util.SoundPoolUtil;
 
 public class SettingDialog extends BaseDialogFragment {
     private boolean accountBalance;
@@ -37,7 +40,7 @@ public class SettingDialog extends BaseDialogFragment {
 //        String password = getArguments().getString("password");
         View view = inflater.inflate(R.layout.dialog_setting, container);
         initView(view);
-        settingSoundFragment(inflater);
+        settingSoundFragment();
         return view;
     }
 
@@ -58,7 +61,7 @@ public class SettingDialog extends BaseDialogFragment {
         rg_setting.setOnCheckedChangeListener((group, checkedId) -> {
             String msg = "";
             if (R.id.rBtn_setting_sound == checkedId) {
-//                settingSoundFragment();
+                settingSoundFragment();
             } else if (R.id.rBtn_setting_password_replace == checkedId) {
                 msg = "换密码";
             } else if (R.id.rBtn_setting_app_replace == checkedId) {
@@ -70,16 +73,23 @@ public class SettingDialog extends BaseDialogFragment {
 
     }
 
-    private void settingSoundFragment(LayoutInflater inflater) {
+    private void settingSoundFragment() {
         View rightContent;
         if (accountBalance) {
-            rightContent = inflater.inflate(R.layout.fragment_setting_sound, content, false);
+            rightContent = LayoutInflater.from(mContext).inflate(R.layout.fragment_setting_sound, content, false);
         } else {
-            rightContent = inflater.inflate(R.layout.fragment_setting_sound_nologin, content, false);
+            rightContent = LayoutInflater.from(mContext).inflate(R.layout.fragment_setting_sound_nologin, content, false);
         }
+//        int volume = mContext.getMediaVolume();
+        final int maxVolume = mContext.getMaxVolume();
 
         SeekBar sb_music = rightContent.findViewById(R.id.sb_music);
         SeekBar sb_vol = rightContent.findViewById(R.id.sb_vol);
+        sb_music.setProgress(SPUtils.getInstance().getMusic());
+        sb_music.setMax(maxVolume);
+        sb_vol.setProgress(SPUtils.getInstance().getVolum());
+        sb_vol.setMax(maxVolume);
+
         TextView tv_setting_name = rightContent.findViewById(R.id.tv_setting_name);
 //        tv_setting_name.setText(userAccount);
         TextView tv_setting_id = rightContent.findViewById(R.id.tv_setting_id);
@@ -94,21 +104,13 @@ public class SettingDialog extends BaseDialogFragment {
         } else {
             btn_logout.setVisibility(View.INVISIBLE);
         }
-        //音量设置
-//        i1 = audioManager.getStreamMaxVolume(3);
-//        int k1 = audioManager.getStreamVolume(3);
-//        int j1 = SPUtils.getInstance().getMusic(k1);
-//        k1 = SPUtils.getInstance().getVolum(k1);
-//        sb_music.setMax(i1);
-//        sb_music.setProgress(j1);
         sb_music.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-//                final MainActivity a = MainActivity.this;
-//                BaseActivity.volumeBg = (float) l1 / a.getMaxVolume();
-//                SPUtils.getInstance().setMusic(l1);
-//                if (!a.isSilentMode())
-//                    MediaPlayUtil.setVolume(BaseActivity.volumeBg);
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                SPUtils.getInstance().setMusic(progress);
+                if (!mContext.isSilentMode()) {
+                    MediaPlayUtil.setVolume((float) progress / maxVolume);
+                }
             }
 
             @Override
@@ -121,14 +123,12 @@ public class SettingDialog extends BaseDialogFragment {
 
             }
         });
-        sb_music.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        sb_vol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-//                final MainActivity a = MainActivity.this;
-//                BaseActivity.volume = (float) l1 / a.getMaxVolume();
-//                SPUtils.getInstance().setVolume(l1);
-//                if (!a.isSilentMode())
-//                    SoundPoolUtil.setVolume2(SoundPoolUtil.mStreamId2, BaseActivity.volume);
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                SPUtils.getInstance().setVolume(progress);
+                if (!mContext.isSilentMode())
+                    SoundPoolUtil.setVolume2(SoundPoolUtil.mStreamId2, (float) progress / maxVolume);
             }
 
             @Override

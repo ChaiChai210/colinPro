@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.chai.colin.dialog.BaseDialogFragment;
 import com.chai.colin.util.EventBusHelper;
+import com.chai.colin.util.MediaPlayUtil;
+import com.chai.colin.util.SPUtils;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.widget.LoadingDialog;
 
@@ -26,6 +28,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected static float volume = 0.8F;
     protected static float volumeBg = 0.8F;
     protected LoadingDialog loadingDialog;
+
+
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         mContext = this;
 //        setStatusBarColor();
         // 基类中注册 eventbus
+
+
         if (this.getClass().isAnnotationPresent(BindEventBus.class)) {
             EventBusHelper.register(this);
         }
@@ -41,15 +47,31 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 //        StatusBarUtil.setLightMode(this);
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        View view  = LayoutInflater.from(this).inflate(R.layout.layout_loading, null);
+
+
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_loading, null);
         this.loadingDialog = new LoadingDialog(this, R.style.MobileDialog);
         this.loadingDialog.initDialog(view);
         registerNetworkChangeReceiver();
         initView();
         initData();
+
+
     }
 
-//    public void setStatusBarColor() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        volumeBg = (float) SPUtils.getInstance().getMusic() / getMaxVolume();
+        MediaPlayUtil.setVolume(volumeBg);
+        volume = (float) SPUtils.getInstance().getVolum() / getMaxVolume();
+        if (isSilentMode()) {
+            volume = 0.0F;
+            volumeBg = 0.0F;
+        }
+    }
+
+    //    public void setStatusBarColor() {
 //        StatusBarUtil.setColor(this, getResources().getColor(android.R.color.white), 0);
 //    }
 
@@ -60,6 +82,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void initData() {
 
     }
+
 
     /**
      * 注册网络监听广播
@@ -110,14 +133,33 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void stopMusic(int paramInt) {
         SoundPoolUtil.stop(paramInt);
     }
-    public void showLoading(){
+
+    public void showLoading() {
         loadingDialog.showDialog();
     }
-    public void hideLoading(){
+
+    public void hideLoading() {
         loadingDialog.dismissDialog();
     }
 
     public void showFragment(BaseDialogFragment fm) {
         fm.show(getSupportFragmentManager(), fm.getClass().getName());
+    }
+
+
+    public int getMaxVolume() {
+        return audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+    }
+
+    public int getMediaVolume() {
+        return audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+    }
+
+    public float getMediaVolume2() {
+        return audioManager.getStreamVolume(AudioManager.STREAM_ALARM);
+    }
+
+    public static float getVolumeBg() {
+        return volumeBg;
     }
 }

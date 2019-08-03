@@ -1,6 +1,7 @@
 package com.chai.colin;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
 import com.aquery.AQuery;
@@ -14,6 +15,7 @@ import com.chai.colin.dialog.RegisterDialog;
 import com.chai.colin.dialog.SafePwdDialog;
 import com.chai.colin.dialog.SettingDialog;
 import com.chai.colin.promotion.NewExtensionActivity;
+import com.chai.colin.util.MediaPlayUtil;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.util.ToastUtil;
 import com.chai.colin.util.UrlHelper;
@@ -31,6 +33,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
+        Log.e("chai","oncreate");
         aq = new AQuery(this);
         aq.id(R.id.btn_login).click(this);
         aq.id(R.id.btn_customer).click(this);
@@ -50,6 +53,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        MediaPlayUtil.release();
         SoundPoolUtil.stop(SoundPoolUtil.mStreamId);
     }
 
@@ -62,6 +66,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onPause() {
         super.onPause();
 //        hideLoading();
+        MediaPlayUtil.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MediaPlayUtil.resume();
     }
 
     @Override

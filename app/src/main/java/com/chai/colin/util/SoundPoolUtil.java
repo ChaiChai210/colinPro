@@ -2,9 +2,9 @@ package com.chai.colin.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
-import android.util.Log;
 
 import com.chai.colin.R;
 
@@ -23,8 +23,8 @@ public class SoundPoolUtil {
     @SuppressLint({"UseSparseArrays"})
     private SoundPoolUtil(Context context) {
         mContext = context;
-        soundPool = new SoundPool(1, 3, 0);
-        soundPool2 = new SoundPool(1, 3, 0);
+        soundPool = new SoundPool(1,  AudioManager.STREAM_MUSIC, 0);
+        soundPool2 = new SoundPool(1,  AudioManager.STREAM_MUSIC, 0);
         soundPoolMap.put(1, R.raw.button_tap);
         soundPoolMap.put(2, R.raw.music_acitivityviewcontroller);
         soundPoolMap.put(3, R.raw.music_cgpromotioncontroller);
