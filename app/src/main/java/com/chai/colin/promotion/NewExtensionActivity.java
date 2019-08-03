@@ -9,23 +9,20 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
-import com.chai.colin.fragment.DirectlyFragment;
-import com.chai.colin.fragment.MyPromotionFragment;
-import com.chai.colin.fragment.WDCardFragment;
 
 public class NewExtensionActivity
         extends BaseActivity
         implements View.OnClickListener {
     private static final String TAG = "NewExtensionActivity";
-    MyPromotionFragment bankFragment = new MyPromotionFragment();
-    DirectlyFragment e = new DirectlyFragment();
-    WDCardFragment f = new WDCardFragment();
-
+    MyPromotionFragment promotion = new MyPromotionFragment();
+    DirectlyFragment directFragment = new DirectlyFragment();
+    MyperformanceFragment performance = new MyperformanceFragment();
+    MyInstructionFragment instructionFragment = new MyInstructionFragment();
     private RadioButton ib_mypromotion;
     private RadioButton ib_memeber;
     private RadioButton ib_performance;
     private RadioButton ib_instruction;
-    private Fragment currentFragment = bankFragment;
+    private Fragment currentFragment = promotion;
 //    protected void onActivityResult(int paramInt1, int paramInt2, @Nullable Intent paramIntent) {
 //        EventBus.getDefault().post(new CustomerEvent(paramInt1, paramIntent));
 //    }
@@ -38,17 +35,17 @@ public class NewExtensionActivity
                 finish();
                 break;
             case R.id.ib_mypromotion:
-//                getSupportFragmentManager().beginTransaction().hide(this.c).hide(this.bankFragment).hide(this.e).show(this.f).commitAllowingStateLoss();
-                switchFragment(bankFragment);
+//                getSupportFragmentManager().beginTransaction().hide(this.c).hide(this.promotion).hide(this.directFragment).show(this.performance).commitAllowingStateLoss();
+                switchFragment(promotion);
                 break;
             case R.id.ib_memeber:
-                switchFragment(e);
+                switchFragment(directFragment);
                 break;
             case R.id.ib_performance:
-                switchFragment(f);
+                switchFragment(performance);
                 break;
             case R.id.ib_instruction:
-                switchFragment(f);
+                switchFragment(instructionFragment);
                 break;
         }
     }
@@ -70,7 +67,7 @@ public class NewExtensionActivity
         ib_instruction = findViewById(R.id.ib_instruction);
 //        //頭部客服
         initListener();
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_containner, bankFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_containner, promotion).commit();
     }
 
     private void initListener() {

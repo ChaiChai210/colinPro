@@ -112,4 +112,6 @@
     <dimen name="dp_225">225dp</dimen>
     <dimen name="dp_85">85dp</dimen>
     <dimen name="dp_84">84dp</dimen>
+    <dimen name="dp_223">223dp</dimen>
+    <dimen name="dp_297">297dp</dimen>
 </resources>

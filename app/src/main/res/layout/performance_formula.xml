@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_showformula"
+        android:layout_width="@dimen/dp_297"
+        android:layout_height="wrap_content"
+        android:background="@drawable/smallbubble"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_12"
+            android:text="团队业绩+自营业绩=》对应返佣比（总体返佣比）"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:text="（总体返佣比*自营业绩）+子级佣金贡献总和=所得佣金"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/sp_10" />
+    </LinearLayout>
+</RelativeLayout>

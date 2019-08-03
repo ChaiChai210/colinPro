@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_performancehead"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dp_30"
+        android:background="#ff373029"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="日期"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+
+        <TextView
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="fill_parent"
+            android:background="#ff2d2721" />
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="直属新增"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+
+        <TextView
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="fill_parent"
+            android:background="#ff2d2721" />
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="自营业绩"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+
+        <TextView
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="fill_parent"
+            android:background="#ff2d2721" />
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="团队新增"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+
+        <TextView
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="fill_parent"
+            android:background="#ff2d2721" />
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="团队业绩"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+
+        <TextView
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="fill_parent"
+            android:background="#ff2d2721" />
+
+        <TextView
+            android:id="@+id/tv_personnalmoney"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:drawableRight="@drawable/questionmark"
+            android:gravity="center"
+            android:paddingRight="@dimen/dp_20"
+            android:text="所得佣金"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+
+        <TextView
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="fill_parent"
+            android:background="#ff2d2721" />
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="操作"
+            android:textColor="#ffffe1b7"
+            android:textSize="@dimen/sp_11" />
+    </LinearLayout>
+</RelativeLayout>

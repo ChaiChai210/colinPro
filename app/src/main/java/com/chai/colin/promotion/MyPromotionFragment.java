@@ -1,4 +1,4 @@
-package com.chai.colin.fragment;
+package com.chai.colin.promotion;
 
 import android.content.Context;
 import android.graphics.Bitmap;

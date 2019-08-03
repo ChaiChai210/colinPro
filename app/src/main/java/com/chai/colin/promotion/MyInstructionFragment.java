@@ -1,9 +1,11 @@
-package com.chai.colin.fragment;
+package com.chai.colin.promotion;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,13 +13,17 @@ import androidx.fragment.app.Fragment;
 
 import com.chai.colin.R;
 
-public class DirectlyFragment extends Fragment {
+//主要逻辑：请求，设置2张图片。然后响应点击事件。弹窗
+public class MyInstructionFragment extends Fragment {
 
+    private ImageView iv_introduce_img;
+    private ImageView iv_commission_bg;
+    private RelativeLayout rl_commission;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_directly, container, false);
+        View view = inflater.inflate(R.layout.myinstructionfragment, container, false);
         initView(view);
         initData();
         initLisner();
@@ -25,10 +31,15 @@ public class DirectlyFragment extends Fragment {
     }
 
     private void initData() {
+        //todo 請求2張圖片
     }
 
 
     private void initLisner() {
+        rl_commission.setOnClickListener(view -> {
+            //todo 弹窗
+        });
+
     }
 
     private void initView(View view) {
@@ -36,15 +47,9 @@ public class DirectlyFragment extends Fragment {
 //        this.loadingDialog = new LoadingDialog((Context) Objects.requireNonNull(getContext()), R.style.MobileDialog);
 //        this.loadingDialog.initDialog(loading);
 //        loadingDialog.showDialog();
-//        tv_leftAmount = view.findViewById(R.id.tv_leftAmount);
-//        tv_leftAmount.setText(Utils.double2Decimal(MyApp.getInstance().getBalance()));
-//        ed_input_money = view.findViewById(R.id.ed_input_money);
-//        Utils.setEditTextHintSize(this.ed_input_money, "请输入您的提现金额", 10);
-//        ib_clear = view.findViewById(R.id.ib_clear);
-//        ib_bind_bank = view.findViewById(R.id.ib_bind_bank);
-//        tv_tixiam_history = view.findViewById(R.id.tv_tixiam_history);
-//        ib_ok = view.findViewById(R.id.ib_ok);
-//        rl_unbind = view.findViewById(R.id.rl_unbind);
-//        rl_bind = view.findViewById(R.id.rl_bind);
+        iv_introduce_img = view.findViewById(R.id.iv_introduce_img);
+        iv_commission_bg = view.findViewById(R.id.iv_commission_bg);
+        rl_commission = view.findViewById(R.id.rl_commission);
+
     }
 }
