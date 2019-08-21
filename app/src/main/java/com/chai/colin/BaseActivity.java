@@ -1,6 +1,8 @@
 package com.chai.colin;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
@@ -28,7 +30,32 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected static float volume = 0.8F;
     protected static float volumeBg = 0.8F;
     protected LoadingDialog loadingDialog;
-
+    public BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action == null) {
+                return;
+            }
+            if (action.equals("android.media.RINGER_MODE_CHANGED")) {
+                switch (audioManager.getRingerMode()) {
+                    case AudioManager.RINGER_MODE_NORMAL:
+                        int music = SPUtils.getInstance().getMusic(getMediaVolume());
+                        volumeBg = music / (float) getMaxVolume();
+                        volume = SPUtils.getInstance().getVolum(getMediaVolume()) / (float) getMaxVolume();
+                        break;
+                    case AudioManager.RINGER_MODE_SILENT:
+                        volume = 0.0f;
+                        volumeBg = 0.0f;
+                        break;
+                    case AudioManager.RINGER_MODE_VIBRATE:
+                        break;
+                }
+                SoundPoolUtil.setVolume2(SoundPoolUtil.mStreamId2, volume);
+                MediaPlayUtil.setVolume(volumeBg);
+            }
+        }
+    };
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
@@ -53,22 +80,29 @@ public abstract class BaseActivity extends AppCompatActivity {
         this.loadingDialog = new LoadingDialog(this, R.style.MobileDialog);
         this.loadingDialog.initDialog(view);
         registerNetworkChangeReceiver();
+        registerReceiver(mReceiver, makeGattUpdateIntentFilter());
         initView();
         initData();
 
 
     }
 
+    private IntentFilter makeGattUpdateIntentFilter() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.media.RINGER_MODE_CHANGED");
+        return filter;
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        volumeBg = (float) SPUtils.getInstance().getMusic() / getMaxVolume();
-        MediaPlayUtil.setVolume(volumeBg);
-        volume = (float) SPUtils.getInstance().getVolum() / getMaxVolume();
-        if (isSilentMode()) {
-            volume = 0.0F;
-            volumeBg = 0.0F;
-        }
+//        volumeBg = (float) SPUtils.getInstance().getMusic() / getMaxVolume();
+//        MediaPlayUtil.setVolume(volumeBg);
+//        volume = (float) SPUtils.getInstance().getVolum() / getMaxVolume();
+//        if (isSilentMode()) {
+//            volume = 0.0F;
+//            volumeBg = 0.0F;
+//        }
     }
 
     //    public void setStatusBarColor() {
@@ -101,10 +135,12 @@ public abstract class BaseActivity extends AppCompatActivity {
             receiver.onDestroy();
             receiver = null;
         }
+        unregisterReceiver(this.mReceiver);
         // 取消注册
         if (this.getClass().isAnnotationPresent(BindEventBus.class)) {
             EventBusHelper.unregister(this);
         }
+//        EventBusHelper.unregister(this);
     }
 
     public void setStatusBarTextColor(Window window, boolean lightStatusBar) {
@@ -126,12 +162,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         return audioManager.getRingerMode() != 2;
     }
 
-    public void playMusic(int paramInt, float paramFloat) {
-        SoundPoolUtil.play(paramInt, volume);
+    public void playMusic(int resId, float volume) {
+        SoundPoolUtil.play(resId, volume);
     }
 
-    public void stopMusic(int paramInt) {
-        SoundPoolUtil.stop(paramInt);
+    public void stopMusic(int resId) {
+        SoundPoolUtil.stop(resId);
     }
 
     public void showLoading() {

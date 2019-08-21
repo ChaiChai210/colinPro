@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_145"
+    android:layout_height="@dimen/dp_48">
+
+    <RelativeLayout
+        android:id="@+id/rl_left_menu"
+        android:layout_width="@dimen/dp_140"
+        android:layout_height="@dimen/dp_48"
+        android:background="@drawable/left_meun_bg_select">
+
+        <ImageView
+            android:id="@id/img_icon"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_10"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_icon"
+            android:layout_alignBottom="@id/img_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_toEndOf="@id/img_icon"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@string/recharge_vx"
+            android:textColor="@drawable/left_menu_text_select"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_charge_discount"
+        android:visibility="gone" />
+</RelativeLayout>

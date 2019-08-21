@@ -1,12 +1,10 @@
-package com.chai.colin.fragment;
+package com.chai.colin.Withdraw;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,29 +13,29 @@ import androidx.fragment.app.Fragment;
 import com.chai.colin.R;
 import com.chai.colin.widget.LoadingDialog;
 
-public class WDBlanceFragment extends Fragment {
-    private static final String TAG = "WDBlanceFragment";
-    //    RecyclerView a;
-    ImageButton b;
-    ImageButton c;
-    TextView d;
-    TextView e;
-    TextView f;
-    //    private FlowingAdapter flowingAdapter;
-//    private List<FlowingData> flowings = new ArrayList();
-    TextView g;
-    View h;
-    //    AQuery i;
-    Context j;
-    int k = 0;
-    //    private FlowingPresenter presenter;
+public class WDCardFragment extends Fragment {
     private LoadingDialog loadingDialog;
 
-
+    private static final String TAG = "WDCardFragment";
+    Context b;
+//    private BankCardAdapter bankCardAdapter;
+//    private List<BankData> bankDataList = new ArrayList();
+//    private BankTypeAdapter bankTypeAdapter;
+//    String c;
+//    String d;
+//    private List<BankCardResult> dataBeans = new ArrayList();
+//    int e = -1;
+//    RecyclerView f;
+//    EditText g;
+//    EditText h;
+//    String i;
+//    private int index = 0;
+//    Dialog j;
+//    private BankCardPresenter presenter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wd_blance, container, false);
+        View view = inflater.inflate(R.layout.fragment_wd_card, container, false);
         initView(view);
         initData();
         initLisner();

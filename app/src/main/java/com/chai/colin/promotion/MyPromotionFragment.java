@@ -35,6 +35,9 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import java.util.Objects;
 
+/**
+ * 我的推广
+ */
 public class MyPromotionFragment extends Fragment implements View.OnClickListener {
     LoadingDialog loadingDialog;
     //左半边

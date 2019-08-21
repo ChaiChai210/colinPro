@@ -1,4 +1,4 @@
-package com.chai.colin.fragment;
+package com.chai.colin.Withdraw;
 
 import android.app.Dialog;
 import android.content.Context;

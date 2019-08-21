@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:background="@drawable/pc_quanyi_bg"
+        android:paddingBottom="@dimen/dp_5">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rights_1" />
+
+        <ImageButton
+            android:id="@+id/ib_rights1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:background="@null"
+            android:src="@drawable/cannot_received" />
+
+        <TextView
+            android:id="@+id/tv_tips_rights1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ib_rights1"
+            android:layout_centerHorizontal="true"
+            android:text="@string/level_get"
+            android:textColor="#ffaaaaaa"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/tv_money1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_tips_rights1"
+            android:layout_centerHorizontal="true"
+            android:text="38888"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_money1"
+            android:layout_toEndOf="@+id/tv_money1"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="元"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_weight="1.0"
+        android:background="@drawable/pc_quanyi_bg"
+        android:paddingBottom="@dimen/dp_5">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rights_2" />
+
+        <ImageButton
+            android:id="@+id/ib_rights2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:background="@null"
+            android:src="@drawable/cannot_received" />
+
+        <TextView
+            android:id="@+id/tv_tips_rights2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ib_rights2"
+            android:layout_centerHorizontal="true"
+            android:text="@string/level_get"
+            android:textColor="#ffaaaaaa"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/tv_money2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_tips_rights2"
+            android:layout_centerHorizontal="true"
+            android:text="128"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_money2"
+            android:layout_toEndOf="@+id/tv_money2"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="元"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_weight="1.0"
+        android:background="@drawable/pc_quanyi_bg"
+        android:paddingBottom="@dimen/dp_5">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rights_3" />
+
+        <ImageButton
+            android:id="@+id/ib_rights3"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:background="@null"
+            android:src="@drawable/cannot_received" />
+
+        <TextView
+            android:id="@+id/tv_tips_rights3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ib_rights3"
+            android:layout_centerHorizontal="true"
+            android:text="@string/level_get"
+            android:textColor="#ffaaaaaa"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/tv_money3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_tips_rights3"
+            android:layout_centerHorizontal="true"
+            android:text="588"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_money3"
+            android:layout_toEndOf="@+id/tv_money3"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="元"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_weight="1.0"
+        android:background="@drawable/pc_quanyi_bg"
+        android:paddingBottom="@dimen/dp_5">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rights_4" />
+
+        <ImageButton
+            android:id="@+id/ib_rights4"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:background="@null"
+            android:src="@drawable/pc_sdxm_unable" />
+
+        <TextView
+            android:id="@+id/tv_tips_rights4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ib_rights4"
+            android:layout_centerHorizontal="true"
+            android:text="@string/get_max_bili"
+            android:textColor="#ffaaaaaa"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/tv_money4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_tips_rights4"
+            android:layout_centerHorizontal="true"
+            android:text="0.6"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_money4"
+            android:layout_toEndOf="@+id/tv_money4"
+            android:paddingBottom="@dimen/dp_5"
+            android:text="%"
+            android:textColor="#fff3af65"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+</LinearLayout>

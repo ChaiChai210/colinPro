@@ -1,4 +1,4 @@
-package com.chai.colin.activity;
+package com.chai.colin.recharge;
 
 import android.view.View;
 import android.view.animation.Animation;
@@ -8,11 +8,21 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chai.colin.BaseActivity;
 import com.chai.colin.MyApp;
 import com.chai.colin.R;
 import com.chai.colin.util.Utils;
+import com.chai.colin.widget.RecycleViewDivider;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 充值界面
+ */
 public class RechargeActivity
         extends BaseActivity
         implements View.OnClickListener {
@@ -27,9 +37,14 @@ public class RechargeActivity
     private ImageView img_title;
     private TextView tv_golden_account;
     private ImageButton btn_recharge_jilu;
-//    protected void onActivityResult(int paramInt1, int paramInt2, @Nullable Intent paramIntent) {
+    //    protected void onActivityResult(int paramInt1, int paramInt2, @Nullable Intent paramIntent) {
 //        EventBus.getDefault().post(new CustomerEvent(paramInt1, paramIntent));
 //    }
+    private LeftMenuAdapter leftMenuAdapter;
+    private LeftMenuBean leftMenuBean;
+    private List<LeftMenuBean> leftMenuBeans = new ArrayList<>();
+    private List list;
+    private RecyclerView mRecyclerView;
 
     public void onClick(View paramView) {
         switch (paramView.getId()) {
@@ -69,7 +84,7 @@ public class RechargeActivity
 
     @Override
     protected void initView() {
-//        playMusic(13, volume);
+        playMusic(13, volume);
         //加载loading界面。
         img_back_bg = findViewById(R.id.img_back_bg);
         img_title = findViewById(R.id.img_title);
@@ -79,6 +94,12 @@ public class RechargeActivity
         tv_golden_account.setText(Utils.double2Decimal(MyApp.getInstance().getBalance()));
         btn_recharge_jilu = findViewById(R.id.btn_recharge_jilu);
         btnRefresh = findViewById(R.id.btn_refresh);
+        mRecyclerView = findViewById(R.id.leftRecyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.addItemDecoration(new RecycleViewDivider(this, 1));
+        leftMenuAdapter = new LeftMenuAdapter(leftMenuBeans);
+        mRecyclerView.setAdapter(leftMenuAdapter);
         initListener();
     }
 
@@ -88,10 +109,12 @@ public class RechargeActivity
         btnRefresh.setOnClickListener(this);
     }
 
-//    protected void onPause() {
-//        super.onPause();
-//        stopMusic(12);
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopMusic(13);
+    }
+
 }
 
 

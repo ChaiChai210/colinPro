@@ -1,4 +1,4 @@
-package com.chai.colin.dialog;
+package com.chai.colin.login;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chai.colin.R;
+import com.chai.colin.dialog.BaseDialogFragment;
 import com.chai.colin.util.ToastUtil;
 import com.chai.colin.util.Utils;
 import com.chai.colin.widget.CheckView;
@@ -40,6 +41,15 @@ public class RegisterDialog extends BaseDialogFragment {
     private CheckView mCheckView;
 
     private boolean isPageOne = true;
+    onRegisterSuccess mListern;
+
+    public interface onRegisterSuccess {
+        void onRegisterSuccess(String account, String pwd);
+    }
+
+    public void setRegisterLiner(onRegisterSuccess listern) {
+        mListern = listern;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +65,7 @@ public class RegisterDialog extends BaseDialogFragment {
 
         accountReg = view.findViewById(R.id.tv_user_bg);
         aphoneReg = view.findViewById(R.id.tv_phone_bg);
+
         ivAccount = view.findViewById(R.id.iv_user_bg);
         ivPhone = view.findViewById(R.id.iv_phone_bg);
         llaccountRegister = view.findViewById(R.id.ll_account);
@@ -97,7 +108,6 @@ public class RegisterDialog extends BaseDialogFragment {
         imagebutton.setOnClickListener(view14 -> {
             String password = pwd.getText().toString().trim();
             String rePassword = pwd_again.getText().toString().trim();
-
             if (TextUtils.isEmpty(password) || TextUtils.isEmpty(rePassword)) {
                 ToastUtil.getInstance().showToast("请输入您的密码");
                 return;
@@ -130,18 +140,17 @@ public class RegisterDialog extends BaseDialogFragment {
                     ToastUtil.getInstance().showToast("验证码不对！");
                     return;
                 }
-                //todo 注册逻辑
-                RxHttp.postForm("userInfoMember/addUserInfoMemberByPhone.do")
-                        .add("memberName",account)
-                        .add("memberPwd",password)
+                RxHttp.postForm("member/memberByPhone")
+                        .add("memberName", account)
+                        .add("memberPwd", password)
                         .asString()                //返回String类型
                         .subscribe(s -> {          //订阅观察者，
                             //请求成功
-                            Log.e("请求成功",s);
-
+                            Log.e("请求成功", s);
+                            dismiss();
                         }, throwable -> {
                             //请求失败
-                            Log.e("请求成功","");
+                            Log.e("请求失败", "");
                         });
 
             } else {
@@ -159,17 +168,7 @@ public class RegisterDialog extends BaseDialogFragment {
                     ToastUtil.getInstance().showToast("请输入您的验证码");
                     return;
                 }
-                //todo 注册逻辑
-                RxHttp.postJson("/userInfoMember/addUserInfoMember.do")
-                        .add("memberName",phoneNum)
-                        .add("memberPwd",password)
-                        .asString()                //返回String类型
-                        .subscribe(s -> {          //订阅观察者，
-                            //请求成功
-                            Log.e("请求成功",s);
-                        }, throwable -> {
-                            //请求失败
-                        });
+
             }
 
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_bet_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@null" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_7"
+        android:background="@drawable/ic_pc_bgm"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp_35"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_8">
+
+            <TextView
+                android:id="@+id/tv_bet_time_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_bet_report_time"
+                android:layout_alignBottom="@+id/tv_bet_report_time"
+                android:gravity="center_vertical"
+                android:text="@string/pai_cai_time"
+                android:textColor="@color/pc_gray"
+                android:textSize="@dimen/sp_10" />
+
+            <TextView
+                android:id="@+id/tv_bet_report_time"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_toEndOf="@+id/tv_bet_time_flag"
+                android:background="@drawable/ic_pc_edit"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_10"
+                android:text="@string/all_time"
+                android:textColor="@color/pc_gray"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_bet_report_platform"
+                android:layout_alignBottom="@+id/tv_bet_report_platform"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_toStartOf="@+id/tv_bet_report_platform"
+                android:gravity="center_vertical"
+                android:text="@string/game_platform"
+                android:textColor="@color/pc_gray"
+                android:textSize="@dimen/sp_10" />
+
+            <TextView
+                android:id="@+id/tv_bet_report_platform"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_22"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_pc_edit"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_10"
+                android:text="@string/all_paltform"
+                android:textColor="@color/pc_gray"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_bet_tab2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null" />
+
+        <com.chai.colin.widget.MultipleStatusView
+            android:id="@+id/msv_user_bet"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/srl_user_bet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_user_bet"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null" />
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </com.chai.colin.widget.MultipleStatusView>
+    </LinearLayout>
+</LinearLayout>

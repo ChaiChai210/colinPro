@@ -1,4 +1,4 @@
-package com.chai.colin.dialog;
+package com.chai.colin.login;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.chai.colin.R;
+import com.chai.colin.dialog.BaseDialogFragment;
 import com.chai.colin.util.SPUtils;
 import com.chai.colin.util.Utils;
 

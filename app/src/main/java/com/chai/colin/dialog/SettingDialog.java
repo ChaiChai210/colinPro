@@ -10,12 +10,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.chai.colin.R;
 import com.chai.colin.util.MediaPlayUtil;
 import com.chai.colin.util.SPUtils;
 import com.chai.colin.util.SoundPoolUtil;
+import com.king.app.dialog.AppDialog;
+import com.king.app.dialog.AppDialogConfig;
+import com.king.app.updater.AppUpdater;
 
 public class SettingDialog extends BaseDialogFragment {
     private boolean accountBalance;
@@ -47,7 +49,6 @@ public class SettingDialog extends BaseDialogFragment {
     private void initView(View view) {
         view.findViewById(R.id.btn_close).setOnClickListener(view1 -> dismiss()
         );
-
         rg_setting = view.findViewById(R.id.rg_setting);
         changePwd = view.findViewById(R.id.rBtn_setting_password_replace);
         content = view.findViewById(R.id.fl_setting_right);
@@ -59,16 +60,28 @@ public class SettingDialog extends BaseDialogFragment {
         }
 
         rg_setting.setOnCheckedChangeListener((group, checkedId) -> {
-            String msg = "";
             if (R.id.rBtn_setting_sound == checkedId) {
                 settingSoundFragment();
             } else if (R.id.rBtn_setting_password_replace == checkedId) {
-                msg = "换密码";
             } else if (R.id.rBtn_setting_app_replace == checkedId) {
-                msg = "ddd";
+                AppDialogConfig config = new AppDialogConfig();
+                config.setTitle("简单弹框升级")
+                        .setOk("升级")
+                        .setContent("1、新增某某功能、\n2、修改某某问题、\n3、优化某某BUG、")
+                        .setOnClickOk(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                new AppUpdater.Builder()
+                                        .serUrl("https://raw.githubusercontent.com/jenly1314/AppUpdater/master/app/release/app-release.apk")
+                                        .setFilename("AppUpdater.apk")
+                                        .build(getContext())
+                                        .start();
+                                AppDialog.INSTANCE.dismissDialog();
+                            }
+                        });
+                AppDialog.INSTANCE.showDialog(getContext(),config);
 //                mContext.showLoading();
             }
-            Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
         });
 
     }
@@ -80,14 +93,14 @@ public class SettingDialog extends BaseDialogFragment {
         } else {
             rightContent = LayoutInflater.from(mContext).inflate(R.layout.fragment_setting_sound_nologin, content, false);
         }
-//        int volume = mContext.getMediaVolume();
+        int volume = mContext.getMediaVolume();
         final int maxVolume = mContext.getMaxVolume();
 
         SeekBar sb_music = rightContent.findViewById(R.id.sb_music);
         SeekBar sb_vol = rightContent.findViewById(R.id.sb_vol);
-        sb_music.setProgress(SPUtils.getInstance().getMusic());
+        sb_music.setProgress(SPUtils.getInstance().getMusic(mContext.getMediaVolume()));
         sb_music.setMax(maxVolume);
-        sb_vol.setProgress(SPUtils.getInstance().getVolum());
+        sb_vol.setProgress(SPUtils.getInstance().getVolum(mContext.getMediaVolume()));
         sb_vol.setMax(maxVolume);
 
         TextView tv_setting_name = rightContent.findViewById(R.id.tv_setting_name);

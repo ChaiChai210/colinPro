@@ -10,9 +10,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.aquery.AQuery;
 import com.chai.colin.BaseActivity;
 import com.chai.colin.R;
-import com.chai.colin.fragment.WDBankFragment;
-import com.chai.colin.fragment.WDBlanceFragment;
-import com.chai.colin.fragment.WDCardFragment;
 
 public class WithDrawActivity
         extends BaseActivity

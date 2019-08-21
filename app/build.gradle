@@ -47,4 +47,8 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
     implementation 'com.classic.common:multiple-status-view:1.6'
+//一键升级
+    implementation 'com.king.app:app-updater:1.0.4-androidx'
+    //app-dialog
+    implementation 'com.king.app:app-dialog:1.0.4-androidx'
 }

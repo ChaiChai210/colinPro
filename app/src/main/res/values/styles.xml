@@ -55,10 +55,30 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/dp_15</item>
     </style>
+    <style name="ListItem">
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textColor">@color/item_tv_gray</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="ListTitle">
         <item name="android:textSize">@dimen/sp_11</item>
         <item name="android:textColor">@color/pc_golden</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@color/pc_golden_bg</item>
+    </style>
+    <style name="TextTypeRed">
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textColor">@color/color_status_back_money</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="TextTypeYellow">
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textColor">@color/color_status_out_mony</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="TextTypeGreen">
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textColor">@color/color_status_success</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

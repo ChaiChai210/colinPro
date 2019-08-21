@@ -64,15 +64,12 @@ public class SPUtils {
         return this.sp.getInt(paramString, paramInt);
     }
 
-//  public float getMusic()
-//  {
-//    this.music = this.sp.getFloat("music", this.music);
-//    return this.music;
-//  }
+    public float getMusic() {
+     return sp.getFloat("music", this.music);
+    }
 
-    public int getMusic() {
-        return this.sp.getInt("music", 8);
-
+    public int getMusic(int paramInt) {
+        return this.sp.getInt("music", paramInt);
     }
 
     public String getNickName() {
@@ -124,13 +121,15 @@ public class SPUtils {
         return this.sp.getString("vip_level ;", this.level);
     }
 
-//    public float getVolum() {
-//        this.volum = this.sp.getFloat("volum", this.volum);
-//        return this.volum;
-//    }
+    public float getVolum()
+    {
+        this.volum = this.sp.getFloat("volum", this.volum);
+        return this.volum;
+    }
 
-    public int getVolum() {
-        return this.sp.getInt("volum", 8);
+    public int getVolum(int paramInt)
+    {
+        return this.sp.getInt("volum", paramInt);
     }
 
     public String getVx() {

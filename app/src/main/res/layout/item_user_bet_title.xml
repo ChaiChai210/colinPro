@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/dp_40"
+    android:orientation="horizontal">
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="fill_parent"
+        android:background="@color/pc_bg_gray1" />
+
+    <TextView
+        android:id="@+id/tv_item_user_bet"
+        style="@style/ListTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/bet_time" />
+</LinearLayout>

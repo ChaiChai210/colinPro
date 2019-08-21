@@ -8,6 +8,6 @@ public class Url {
 
     @DefaultDomain() //设置为默认域名
 //    http://192.168.0.122:8081/zh-member-web/userInfoMember/addUserInfoMember.do
-    public static String baseUrl = " http://192.168.0.122:8081/zh-member-web/";
+    public static String baseUrl = "http://www.zhmember.f9186.com:8080/zh-member-web/";
 //    public static String baseUrl = " https://www.wanandroid.com/";
 }

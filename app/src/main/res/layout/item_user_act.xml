@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_act_item"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/dp_30"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_act_time_item"
+        style="@style/ListItem"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" />
+
+    <TextView
+        android:id="@+id/tv_act_type"
+        style="@style/ListItem"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" />
+
+    <TextView
+        android:id="@+id/tv_act_pay"
+        style="@style/TextTypeRed"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" />
+
+    <TextView
+        android:id="@+id/tv_act_earnings"
+        style="@style/TextTypeGreen"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" />
+
+    <TextView
+        android:id="@+id/tv_act_balance"
+        style="@style/TextTypeYellow"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" />
+</LinearLayout>

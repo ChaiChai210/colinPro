@@ -7,13 +7,13 @@ import com.aquery.AQuery;
 import com.chai.colin.CustomerService.CustomerServiceActivity;
 import com.chai.colin.Withdraw.WithDrawActivity;
 import com.chai.colin.activity.HuoDongActivity;
-import com.chai.colin.activity.RechargeActivity;
 import com.chai.colin.activity.XimaActivity;
-import com.chai.colin.dialog.LoginDialog;
-import com.chai.colin.dialog.RegisterDialog;
 import com.chai.colin.dialog.SafePwdDialog;
 import com.chai.colin.dialog.SettingDialog;
+import com.chai.colin.login.LoginDialog;
 import com.chai.colin.promotion.NewExtensionActivity;
+import com.chai.colin.recharge.RechargeActivity;
+import com.chai.colin.userinfo.UserInfoActivity;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.util.ToastUtil;
 import com.chai.colin.util.UrlHelper;
@@ -79,7 +79,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 showFragment(LoginDialog.newInstance("", ""));
                 break;
             case R.id.btn_register:
-                showFragment(new RegisterDialog());
+//                RegisterDialog registerDialog =  new RegisterDialog();
+//                registerDialog.setRegisterLiner(new RegisterDialog.onRegisterSuccess() {
+//                    @Override
+//                    public void onRegisterSuccess(String account, String pwd) {
+//
+//                    }
+//                });
+//                showFragment(registerDialog);
+                startActivity(new Intent(this, UserInfoActivity.class));
 //                RegisterDialog fm3 = new RegisterDialog();
 //                fm3.show(getSupportFragmentManager(), "register");
                 break;

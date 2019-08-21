@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_pc_bgm">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_user_act"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_40"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dp_10">
+
+                <TextView
+                    android:id="@+id/tv_account_time_flag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tv_account_time"
+                    android:layout_alignBottom="@+id/tv_account_time"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:text="@string/deal_time"
+                    android:textColor="@color/pc_gray"
+                    android:textSize="@dimen/sp_10" />
+
+                <TextView
+                    android:id="@+id/tv_account_time"
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_22"
+                    android:layout_toEndOf="@+id/tv_account_time_flag"
+                    android:background="@drawable/ic_pc_edit"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_10"
+                    android:text="@string/all_time"
+                    android:textColor="@color/pc_gray"
+                    android:textSize="@dimen/sp_12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tv_account_type"
+                    android:layout_alignBottom="@+id/tv_account_type"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_toStartOf="@+id/tv_account_type"
+                    android:gravity="center_vertical"
+                    android:text="@string/deal_status"
+                    android:textColor="@color/pc_gray"
+                    android:textSize="@dimen/sp_10" />
+
+                <TextView
+                    android:id="@+id/tv_account_type"
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_22"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/sp_15"
+                    android:background="@drawable/ic_pc_edit"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_10"
+                    android:text="@string/recharge_all_status"
+                    android:textColor="@color/pc_gray"
+                    android:textSize="@dimen/sp_12" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_act_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@null" />
+
+            <com.chai.colin.widget.MultipleStatusView
+                android:id="@+id/msv_user_act"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                    android:id="@+id/srl_user_act"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_user_act"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null" />
+                </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+            </com.chai.colin.widget.MultipleStatusView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_user_act"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amount_all"
+                    android:textColor="@color/pc_tab"
+                    android:textSize="@dimen/sp_11" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_40"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recharge_1"
+                        android:textColor="@color/pc_tab"
+                        android:textSize="@dimen/sp_11" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="@string/discount_1"
+                        android:textColor="@color/pc_tab"
+                        android:textSize="@dimen/sp_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_act_zc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00.00"
+                        android:textColor="@color/pc_green"
+                        android:textSize="@dimen/sp_11" />
+
+                    <TextView
+                        android:id="@+id/tv_act_yh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="00.00"
+                        android:textColor="@color/pc_text"
+                        android:textSize="@dimen/sp_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_40"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/withdraw_1"
+                        android:textColor="@color/pc_tab"
+                        android:textSize="@dimen/sp_11" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="@string/fan_shui_1"
+                        android:textColor="@color/pc_tab"
+                        android:textSize="@dimen/sp_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_act_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00.00"
+                        android:textColor="@color/pc_red"
+                        android:textSize="@dimen/sp_11" />
+
+                    <TextView
+                        android:id="@+id/tv_act_fs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="00.00"
+                        android:textColor="@color/pc_text"
+                        android:textSize="@dimen/sp_11" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_account_yuan"
+                android:layout_alignBottom="@+id/tv_account_yuan"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_150"
+                android:layout_toStartOf="@+id/tv_act_ye"
+                android:gravity="center_vertical"
+                android:text="@string/yu_e"
+                android:textColor="@color/pc_tab"
+                android:textSize="@dimen/sp_10" />
+
+            <TextView
+                android:id="@+id/tv_act_ye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_account_yuan"
+                android:layout_gravity="center_vertical"
+                android:layout_toStartOf="@+id/tv_account_yuan"
+                android:text="¥00.00"
+                android:textColor="@color/pc_text"
+                android:textSize="@dimen/sp_15"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_account_yuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:text="元"
+                android:textColor="@color/pc_text"
+                android:textSize="@dimen/sp_12"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

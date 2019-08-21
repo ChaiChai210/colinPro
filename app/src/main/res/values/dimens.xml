@@ -114,4 +114,7 @@
     <dimen name="dp_84">84dp</dimen>
     <dimen name="dp_223">223dp</dimen>
     <dimen name="dp_297">297dp</dimen>
+    <dimen name="sp_19">19sp</dimen>
+    <dimen name="sp_33">33sp</dimen>
+    <dimen name="sp_8">8sp</dimen>
 </resources>
