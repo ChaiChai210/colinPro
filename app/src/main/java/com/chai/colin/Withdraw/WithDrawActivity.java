@@ -16,8 +16,8 @@ public class WithDrawActivity
         implements View.OnClickListener {
     private static final String TAG = "CustomerServiceActivity";
     WDBankFragment bankFragment = new WDBankFragment();
-    WDBlanceFragment e = new WDBlanceFragment();
-    WDCardFragment f = new WDCardFragment();
+    WDBlanceFragment balanceFrg = new WDBlanceFragment();
+    WDCardFragment cardFrg = new WDCardFragment();
     AQuery aq;
 
     RadioButton btn_to_bank;
@@ -35,14 +35,14 @@ public class WithDrawActivity
                 finish();
                 break;
             case R.id.btn_to_bank:
-//                getSupportFragmentManager().beginTransaction().hide(this.c).hide(this.bankFragment).hide(this.e).show(this.f).commitAllowingStateLoss();
+//                getSupportFragmentManager().beginTransaction().hide(this.c).hide(this.bankFragment).hide(this.balanceFrg).show(this.cardFrg).commitAllowingStateLoss();
                 switchFragment(bankFragment);
                 break;
             case R.id.btn_blance:
-                switchFragment(e);
+                switchFragment(balanceFrg);
                 break;
             case R.id.btn_card:
-                switchFragment(f);
+                switchFragment(cardFrg);
                 break;
         }
     }
@@ -62,7 +62,7 @@ public class WithDrawActivity
         //頭部客服
 //        aq.id(R.id.img_title).image(R.drawable.ic_withdraw_title);
         initListener();
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_wd_contain, e).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_wd_contain, bankFragment).commit();
     }
 
     private void initListener() {

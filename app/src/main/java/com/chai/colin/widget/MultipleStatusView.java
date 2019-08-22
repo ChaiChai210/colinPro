@@ -114,8 +114,7 @@ public class MultipleStatusView
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         clear(this.mEmptyView, this.mLoadingView, this.mErrorView, this.mNoNetworkView);
-        ArrayList localArrayList = this.mOtherIds;
-        localArrayList.clear();
+        mOtherIds.clear();
         if (this.mOnRetryClickListener != null) {
             this.mOnRetryClickListener = null;
         }

@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MyPerformanceAdapter
         extends BaseQuickAdapter<MyPerformanceBean.ResultBean, BaseViewHolder> {
-    MyPerformanceAdapter(@Nullable List<MyPerformanceBean.ResultBean> paramList) {
+    MyPerformanceAdapter(@NonNull List<MyPerformanceBean.ResultBean> paramList) {
         super(R.layout.item_performance, paramList);
     }
 
