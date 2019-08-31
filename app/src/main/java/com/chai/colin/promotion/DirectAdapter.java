@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DirectAdapter
         extends BaseQuickAdapter<PromoteNextData, BaseViewHolder> {
-    DirectAdapter(@Nullable List<PromoteNextData> paramList) {
+    public DirectAdapter(@Nullable List<PromoteNextData> paramList) {
         super(R.layout.item_directly, paramList);
     }
 

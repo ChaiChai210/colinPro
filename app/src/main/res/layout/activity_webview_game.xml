@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_game_webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <com.chai.colin.widget.DragButton
+        android:id="@+id/btn_home"
+        android:layout_width="@dimen/dp_56"
+        android:layout_height="@dimen/dp_56"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_back_home" />
+</FrameLayout>

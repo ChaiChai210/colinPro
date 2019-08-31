@@ -8,6 +8,7 @@ import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -30,6 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected static float volume = 0.8F;
     protected static float volumeBg = 0.8F;
     protected LoadingDialog loadingDialog;
+
     public BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -57,6 +59,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     };
 
+    private static long clickGapTime = 0;
+
+    public static final int CLICK_GAP_RESPONSE = 1000;
+
+    protected boolean clickGapFilter() {
+        long currentTimeMillis = System.currentTimeMillis();
+        Log.e("time", String.valueOf(currentTimeMillis-clickGapTime));
+        if (currentTimeMillis - clickGapTime <= CLICK_GAP_RESPONSE) {
+            return false;
+        }
+        clickGapTime = currentTimeMillis;
+        return true;
+    }
+
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +81,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        setStatusBarColor();
         // 基类中注册 eventbus
 
-
         if (this.getClass().isAnnotationPresent(BindEventBus.class)) {
             EventBusHelper.register(this);
         }
@@ -73,7 +88,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);//黑色
         }
 //        StatusBarUtil.setLightMode(this);
-        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
 
 
         View view = LayoutInflater.from(this).inflate(R.layout.layout_loading, null);

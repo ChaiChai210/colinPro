@@ -150,28 +150,6 @@
                         android:src="@drawable/ic_refresh" />
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp_30"
-                    android:layout_weight="1.0"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/dp_20">
-
-                    <ImageView
-                        android:id="@+id/img_website"
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:src="@drawable/ic_website_ky" />
-
-                    <ImageButton
-                        android:id="@+id/btn_copy"
-                        android:layout_width="@dimen/dp_30"
-                        android:layout_height="fill_parent"
-                        android:layout_alignEnd="@+id/img_website"
-                        android:background="@null" />
-                </RelativeLayout>
-
                 <ImageButton
                     android:id="@+id/btn_setting"
                     android:layout_width="wrap_content"
@@ -221,6 +199,28 @@
                 android:layout_weight="1.0"
                 android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_30"
+                    android:layout_weight="1.0"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_20">
+
+                    <ImageView
+                        android:id="@+id/img_website"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_website_ky" />
+
+                    <ImageButton
+                        android:id="@+id/btn_copy"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="fill_parent"
+                        android:layout_alignEnd="@+id/img_website"
+                        android:background="@null" />
+                </RelativeLayout>
+
                 <TextView
                     android:id="@+id/tv_notify"
                     android:layout_width="fill_parent"
@@ -239,8 +239,9 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewContent"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
+                    android:layoutAnimation="@anim/layout_animation_from_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </LinearLayout>
 

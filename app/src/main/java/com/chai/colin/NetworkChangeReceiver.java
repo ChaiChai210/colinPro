@@ -17,6 +17,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     private Activity activity;
     private NoNetworkTip noNetworkTip;
 
+
     public NetworkChangeReceiver(Activity activity) {
         this.activity = activity;
     }

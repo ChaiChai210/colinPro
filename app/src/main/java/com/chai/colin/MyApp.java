@@ -13,6 +13,7 @@ import com.chai.colin.util.MediaPlayUtil;
 import com.chai.colin.util.SPUtils;
 import com.chai.colin.util.SoundPoolUtil;
 import com.chai.colin.util.ToastUtil;
+import com.tencent.smtt.sdk.QbSdk;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,21 @@ public class MyApp extends Application {
         //在这里为应用设置异常处理程序，然后我们的程序才能捕获未处理的异常
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+
+            @Override
+            public void onViewInitFinished(boolean arg0) {
+                // TODO Auto-generated method stub
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+            }
+
+            @Override
+            public void onCoreInitFinished() {
+                // TODO Auto-generated method stub
+            }
+        };
+        //x5内核初始化接口
+        QbSdk.initX5Environment(getApplicationContext(), cb);
 
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
