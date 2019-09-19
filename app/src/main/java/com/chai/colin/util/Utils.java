@@ -1,41 +1,27 @@
 package com.chai.colin.util;
 
-import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.MediaStore.Images.Media;
-import android.provider.Settings.SettingNotFoundException;
-import android.provider.Settings.System;
-import android.telephony.TelephonyManager;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.EditText;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -237,16 +223,16 @@ public class Utils {
         return paramString.matches("[1-9][0-9]{4,}");
     }
 
-//    public static int isScreenAutoRotate(Context paramContext) {
-//        int i;
-//        try {
-//            i = Settings.System.getInt(paramContext.getContentResolver(), "accelerometer_rotation");
-//        } catch (Settings.SettingNotFoundException paramContext) {
-//            paramContext.printStackTrace();
-//            i = 0;
-//        }
-//        return i;
-//    }
+    public static int isScreenAutoRotate(Context context) {
+        int i;
+        try {
+            i = Settings.System.getInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+            i = 0;
+        }
+        return i;
+    }
 
     public static String long2String(long paramLong, String paramString) {
         if (paramLong < 1000L) {

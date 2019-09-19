@@ -78,7 +78,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mRightGameAdapter.setOnItemClickListener((adapter, view, position) -> {
 //            IntentUtil.startActivity(MainActivity.this,WebviewGameActivity.class);
             Intent intent = new Intent(MainActivity.this,WebviewGameActivity.class);
-            intent.putExtra("webUrl",contentList.get(position).getUrl());
+            intent.putExtra("webUrl","220");
+            MainActivity.this.startActivity(intent);
         });
     }
 

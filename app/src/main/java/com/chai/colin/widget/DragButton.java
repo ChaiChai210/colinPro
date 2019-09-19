@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
@@ -39,7 +38,6 @@ public class DragButton extends ImageButton {
     }
 
 
-
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -47,7 +45,6 @@ public class DragButton extends ImageButton {
             parentHeight = ((ViewGroup) getParent()).getHeight();
             parentWidth = ((ViewGroup) getParent()).getWidth();
         }
-        Log.e("chai", parentHeight + "parent" + parentWidth);
     }
 
     @Override
@@ -67,38 +64,31 @@ public class DragButton extends ImageButton {
                 break;
             }
             case MotionEvent.ACTION_MOVE: {
-                if (this.parentHeight > 0.0F) {
-                    if (this.parentWidth != 0.0F) {
-                        this.isDrag = true;
-                        float dx = f4 - this.lastX;
-                        float dy = f5 - this.lastY;
-                        double d = Math.sqrt(dx * dx + dy * dy);
-                        Log.e("ccc", "move" + d);
-                        if (d > 10.0D) {
-                            float f3 = dx + getX();
-                            if (f3 < 0.0F) {
-                                dx = 0.0F;
-                            } else {
-                                dx = f3;
-                                if (f3 > this.parentWidth - getWidth())
-                                    dx = this.parentWidth - getWidth();
-                            }
-                            if (getY() >= 0.0F) {
-                                if (getY() + getHeight() > parentHeight)
-                                    f2 = parentHeight - getHeight();
-                                else
-                                    f2 = dy + getY();
-                            }
-                            setX(dx);
-                            setY(f2);
-                            this.lastX = f4;
-                            this.lastY = f5;
-                        }
+                float dx = f4 - this.lastX;
+                float dy = f5 - this.lastY;
+                double d = Math.sqrt(dx * dx + dy * dy);
+                if (d > 10.0D) {
+                    float f3 = dx + getX();
+                    if (f3 < 0.0F) {
+                        dx = 0.0F;
                     } else {
-                        isDrag = false;
+                        dx = f3;
+                        if (f3 > this.parentWidth - getWidth())
+                            dx = this.parentWidth - getWidth();
                     }
+                    if (getY() >= 0.0F) {
+                        if (getY() + getHeight() > parentHeight)
+                            f2 = parentHeight - getHeight();
+                        else
+                            f2 = dy + getY();
+                    }
+                    setX(dx);
+                    setY(f2);
+                    this.lastX = f4;
+                    this.lastY = f5;
+                } else {
+                    isDrag = false;
                 }
-
 
                 break;
             }
@@ -117,12 +107,12 @@ public class DragButton extends ImageButton {
                 break;
 
         }
-//        if (isNotDrag()) {
-//            if (super.onTouchEvent(event)) {
-//                return true;
-//            }
-//            flag = false;
-//        }
+        if (isNotDrag()) {
+            if (super.onTouchEvent(event)) {
+                return true;
+            }
+            flag = false;
+        }
         return flag;
     }
 
